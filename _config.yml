@@ -21,11 +21,6 @@ menu:
     pages:
       Build a predictive model: R/buildmodel
       Perform customer clustering: R/clustering
-  Something else:
-    logo: r-logo.png
-    pages:
-      Build a predictive model: R/buildmodel
-      Build a predictive model: R/clustering
 
   Python:
     logo: python.png
