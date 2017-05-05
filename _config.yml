@@ -13,7 +13,7 @@ gitter: https://gitter.im/Microsoft/mssql-developers
 steps:
   1: Set up your environment
   2: Train your predictive model in $$
-  3: Operationalize your predicitve model with SQL Server $$ Services
+  3: Operationalize your predicitve model
 
 menu:
   R:
