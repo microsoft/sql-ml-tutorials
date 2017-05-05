@@ -17,7 +17,7 @@ steps:
 
 menu:
   R:
-    logo: csharp.png
+    logo: r-logo.png
     pages:
       Build a predictive model: csharp/mac
       Perform customer clustering: csharp/rhel
@@ -26,17 +26,12 @@ menu:
     pages:
       macOS: node/mac
       RHEL: node/rhel
-      Ubuntu: node/ubuntu
-      SLES*: node/sles
-      Windows: node/windows
   Python:
     logo: python.png
     pages:
       Build a predictive model: python/mac
-      Build a predictive model: python/rhel
+      Perform customer clustering: python/rhel
   
-
-
 resources:
   sqlserver-csharp:
     pre: Check out what's new with
