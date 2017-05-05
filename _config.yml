@@ -17,21 +17,24 @@ steps:
 
 menu:
   R:
-    logo: r-logo.png
+    logo: csharp.png
     pages:
-      Build a predictive model: csharp/mac
-      Perform customer clustering: csharp/rhel
+      Build a predictive model: R/buildmodel
+      Perform customer clustering: R/clustering
   Something else:
     logo: node.png
     pages:
-      macOS: node/mac
-      RHEL: node/rhel
+      Build a predictive model: R/buildmodel
+      Build a predictive model: R/clustering
+
   Python:
     logo: python.png
     pages:
-      Build a predictive model: python/mac
-      Perform customer clustering: python/rhel
+      Build a predictive model: python/buildmodel
+      Perform customer clustering: python/clustering
   
+
+
 resources:
   sqlserver-csharp:
     pre: Check out what's new with
