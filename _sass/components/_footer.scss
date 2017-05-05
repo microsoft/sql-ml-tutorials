@@ -7,7 +7,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    min-height: 20vh;
     padding-bottom: $padding * .25;
     padding-left: $padding;
     padding-right: $padding;
@@ -29,6 +28,7 @@
         }
 
         &--social {
+            float: right !important;
             width: $width * 1.4 - $padding * 2;
         }
     }
@@ -61,6 +61,7 @@
 
     &-icon {
         color: $color-foreground-brighter;
+        float:right !important;
         font-size: 2.5rem !important;
         margin-right: .5rem;
 
@@ -71,8 +72,8 @@
     }
 
     &-copy {
-        font-size: $font-size-s;
-        padding-top: 3rem;
+        font-size: 1rem;
+        padding-top: 2.5rem;
         width: 100%;
     }
 }
