@@ -12,8 +12,9 @@ gitter: https://gitter.im/Microsoft/mssql-developers
 
 steps:
   1: Set up your environment
+  2. Train your predictive model in $$
   2: Create $$ application with SQL server
-  3: Make your $$ app up to 100x faster
+  3: Operationalize your predicitve model with SQL Server $$ Services
 
 menu:
   R:
