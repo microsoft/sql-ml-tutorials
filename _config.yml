@@ -17,12 +17,12 @@ steps:
 
 menu:
   R:
-    logo: csharp.png
+    logo: r-logo.png
     pages:
       Build a predictive model: R/buildmodel
       Perform customer clustering: R/clustering
   Something else:
-    logo: node.png
+    logo: r-logo.png
     pages:
       Build a predictive model: R/buildmodel
       Build a predictive model: R/clustering
