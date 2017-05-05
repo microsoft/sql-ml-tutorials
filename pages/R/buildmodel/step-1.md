@@ -1,12 +1,12 @@
 ---
 layout: page-steps
 language: Python
-title: macOS
-permalink: /python/mac/
+title: TBD
+permalink: /R/buildmodel/
 redirect_from:
-  - /python/
-  - /python/mac/step/
-  - /python/mac/step/1
+  - /R/
+  - /R/buildmodel/step/
+  - /R/buildmodel/step/1
 ---
 
 > In this section, you will get SQL Server vNext running on Docker. After that you will install the necessary dependencies to create Python apps with SQL Server

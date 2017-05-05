@@ -1,12 +1,12 @@
 ---
 layout: page-steps
 language: Python
-title: RHEL
-permalink: /python/rhel/
+title: TBD 
+permalink: /python/clustering/
 redirect_from:
-  - /python/
-  - /python/rhel/step/
-  - /python/rhel/step/1
+  - /clustering/
+  - /python/clustering/step/
+  - /python/clustering/step/1
 ---
 
 > In this section, you will get SQL Server vNext running on RedHat Enterprise Linux. After that you will install the necessary dependencies to create Python apps with SQL Server
