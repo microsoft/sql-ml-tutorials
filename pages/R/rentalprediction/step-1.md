@@ -4,6 +4,9 @@ language: R
 title: Windows
 permalink: /ML/R/rentalprediction
 redirect_from:
+  - /rentalprediction/
+  - /R/rentalprediction/step/
+  - /R/rentalprediction/step/1
 ---  
 
 Predictive modeling is a powerful way to add intelligence to your application. It enables applications to predict outcomes against new data.
