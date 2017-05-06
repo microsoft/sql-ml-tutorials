@@ -1,8 +1,8 @@
 # Site settings
 # Access it in the templates via {{ site.myvariable }}.
-title: Get Started with Machine Learning in SQL Server
+title: Get Started with SQL Server Machine Learning Services
 description: > 
-  Get Started with Machine Learning in SQL Server
+  Get Started with SQL Server Machine Learning Services
 url: "https://microsoft.github.io/sqldev/ml/"
 
 disqus:
