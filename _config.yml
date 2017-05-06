@@ -1,9 +1,9 @@
 # Site settings
 # Access it in the templates via {{ site.myvariable }}.
-title: Get Started with AI in SQL Server
+title: Get Started with Machine Learning in SQL Server
 description: > 
-  Get Started with AI in SQL Server
-url: "https://microsoft.github.io/sqldev/ai/"
+  Get Started with Machine Learning in SQL Server
+url: "https://microsoft.github.io/sqldev/ml/"
 
 disqus:
   shortname: sqlchoice
@@ -12,25 +12,30 @@ gitter: https://gitter.im/Microsoft/mssql-developers
 
 steps:
   1: Set up your environment
-  2: Train your predictive model in $$
-  3: Operationalize your predicitve model
+  2: Create your ML script using $$
+  3: Deploy your ML script with SQL Server
 
 menu:
   R:
     logo: r-logo.png
     pages:
-      Build a predictive model: R/buildmodel
-      Perform customer clustering: R/clustering
+      Build a predictive model: R/rentalprediction
+      Perform customer clustering: R/customerclustering
 
   Python:
     logo: python.png
     pages:
-      Build a predictive model: python/buildmodel
-      Perform customer clustering: python/clustering
+      Build a predictive model: python/rentalprediction
+      
   
 
 
 resources:
+  sqlserver-R:
+    pre: Check out what's new with
+    text: SQL Server + R on Channel 9
+    link: https://channel9.msdn.com/Events/Connect/2016/151
+    condition: R
   sqlserver-csharp:
     pre: Check out what's new with
     text: SQL Server + C# on Channel 9
