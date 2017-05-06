@@ -1,6 +1,6 @@
 ---
 layout: page-steps
-language: Python
+language: R
 title: TBD 
 permalink: /R/customerclustering/step/2
 ---

@@ -1,10 +1,10 @@
 ---
 layout: page-steps
-language: Python
+language: R
 title: TBD 
 permalink: /R/customerclustering/
 redirect_from:
-  - /customerclustering/
+  - /R/
   - /R/customerclustering/step/
   - /R/customerclustering/step/1
 ---

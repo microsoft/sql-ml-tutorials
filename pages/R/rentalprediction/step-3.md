@@ -1,10 +1,10 @@
 ---
 layout: page-steps
 language: R
-title: Windows
-permalink: /ML/R/rentalprediction
-redirect_from:
+title: TBD
+permalink: /R/rentalprediction/step/3
 ---
+
 
 
 >In this section, we will move the R code we just wrote to SQL Server and deploy our predictive model with the help of SQL Server Machine Learning Services.

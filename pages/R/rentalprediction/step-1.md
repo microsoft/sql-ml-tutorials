@@ -1,10 +1,10 @@
 ---
 layout: page-steps
 language: R
-title: Windows
-permalink: /ML/R/rentalprediction
+title: TBD
+permalink: /R/rentalprediction
 redirect_from:
-  - /rentalprediction/
+  - /R/
   - /R/rentalprediction/step/
   - /R/rentalprediction/step/1
 ---  

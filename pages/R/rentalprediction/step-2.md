@@ -1,11 +1,9 @@
 ---
 layout: page-steps
 language: R
-title: Windows
-permalink: /ML/R/rentalprediction
-redirect_from:
+title: TBD
+permalink: /R/rentalprediction/step/2
 ---
-
 
 >After getting SQL Server with ML Services installed and your R IDE configured on your machine, you can now proceed to **train** a predictive model with R.
 >R is a programming language that makes statistical and math computation easy, and is very useful for any machine learning/predictive analytics/statistics work.
