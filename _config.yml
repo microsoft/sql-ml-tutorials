@@ -19,7 +19,7 @@ menu:
   R:
     logo: r-logo.png
     pages:
-      Build a predictive model: R/rentalprediction
+      Predict ski rentals: R/rentalprediction
       Perform customer clustering: R/customerclustering
 
   Python:
