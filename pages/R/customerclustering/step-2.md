@@ -1,7 +1,7 @@
 ---
 layout: page-steps
 language: R
-title: TBD 
+title: Perform customer clustering 
 permalink: /R/customerclustering/step/2
 ---
 

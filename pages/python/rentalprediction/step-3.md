@@ -1,7 +1,7 @@
 ---
 layout: page-steps
 language: Python
-title: TBD 
+title: Build a predictive model 
 permalink: /python/rentalprediction/step/3
 ---
 

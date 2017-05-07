@@ -1,7 +1,7 @@
 ---
 layout: page-steps
 language: R
-title: TBD
+title: Build a predictive model
 permalink: /R/rentalprediction/step/3
 ---
 
