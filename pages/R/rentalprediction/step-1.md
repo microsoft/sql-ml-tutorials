@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page-steps
 language: R
 title: Build a predictive model
