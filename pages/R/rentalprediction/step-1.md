@@ -9,10 +9,9 @@ redirect_from:
   - /R/rentalprediction/step/1
 ---  
 
-Predictive modeling is a powerful way to add intelligence to your application. It enables applications to predict outcomes against new data.
-The act of incorporating predictive analytics into your applications involves two major phases: 
 
-**model training** and **model deployment**
+Predictive modeling is a powerful way to add intelligence to your application. It enables applications to predict outcomes against new data.
+The act of incorporating predictive analytics into your applications involves two major phases: **model training** and **model deployment**
 
 In this tutorial, you will learn how to create a predictive model in R and deploy it with SQL Server 2016 (and above) Machine Learning Services.
 
