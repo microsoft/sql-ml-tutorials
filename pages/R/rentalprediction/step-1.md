@@ -44,7 +44,7 @@ To import a report in SSMS, right click on Server Objects in the SSMS Object Exp
 -R Tools for Visual Studio (RTVS) [Download](https://www.visualstudio.com/vs/rtvs)
 -RStudio [Download](https://www.rstudio.com)
 2.To be able to use some of the functions in this tutorial, you need to configure your R IDE to point to Microsoft R Client, which is an R Runtime provided by Microsoft. This runtime contains MS R Open packages.
-Follow the steps 1 and 2 [here](https://msdn.microsoft.com/en-us/microsoft-r/r-client-get-started#configure-ide) to install R client and configure your R IDE tool.</p>
+Follow the steps 1 and 2 [here](https://msdn.microsoft.com/en-us/microsoft-r/r-client-get-started#configure-ide) to install R client and configure your R IDE tool.
 
 >Terrific, now your SQL Server instance is able to host and run R code and you have the necessary development tools installed and configured! 
 The next section will walk you through creating a predictive model using R.
