@@ -1,4 +1,4 @@
----
+﻿---
 layout: page-steps
 language: Python
 title: Build a predictive model 
@@ -34,8 +34,8 @@ You can read more about configuring Machine Learning Services [here](https://doc
  
 ## Step 1.4 Install and configure your Python development environment   
 1.You need to install a Python IDE. Here are some suggestions:
--Python Tools for Visual Studio (PTVS [Download](https://microsoft.github.io/PTVS)
--PyCharm [Download](https://www.jetbrains.com/pycharm/)
+⋅⋅*Python Tools for Visual Studio (PTVS [Download](https://microsoft.github.io/PTVS)
+⋅⋅*PyCharm [Download](https://www.jetbrains.com/pycharm/)
 
 2.To be able to use some of the functions in this tutorial, you need to point your Python environment to use the Python that comes with SQL Server 2017.
 Point you Python environment to this path: *C:\Program Files\Microsoft SQL Server\YOURSQLSERVER\PYTHON_SERVICES*
