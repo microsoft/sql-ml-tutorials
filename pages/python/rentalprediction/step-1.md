@@ -20,7 +20,7 @@ The act of incorporating predictive analytics into your applications involves tw
 {% include partials/install_sql_server_windows_ML.md %}
 
 ## Step 1.2 Install SQL Server Management Studio (SSMS)
-1.Download and install [SSMS](https://msdn.microsoft.com/en-us/library/mt238290.aspx)
+Download and install [SSMS](https://msdn.microsoft.com/en-us/library/mt238290.aspx)
 
 ## Step 1.3 Enable external script execution              
 Run SSMS and open a new query window. Then execute the script below to enable your instance to run Python scripts in SQL Server.
@@ -34,8 +34,10 @@ You can read more about configuring Machine Learning Services [here](https://doc
  
 ## Step 1.4 Install and configure your Python development environment   
 1.You need to install a Python IDE. Here are some suggestions:
-⋅⋅*Python Tools for Visual Studio (PTVS [Download](https://microsoft.github.io/PTVS)
-⋅⋅*PyCharm [Download](https://www.jetbrains.com/pycharm/)
+
+*Python Tools for Visual Studio (PTVS [Download](https://microsoft.github.io/PTVS)
+
+*PyCharm [Download](https://www.jetbrains.com/pycharm/)
 
 2.To be able to use some of the functions in this tutorial, you need to point your Python environment to use the Python that comes with SQL Server 2017.
 Point you Python environment to this path: *C:\Program Files\Microsoft SQL Server\YOURSQLSERVER\PYTHON_SERVICES*
