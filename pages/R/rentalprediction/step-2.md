@@ -46,7 +46,7 @@ You can verify this by querying the table in SSMS.
 USE tutorialdb;
 SELECT * FROM [dbo].[rental_data];
 ```
-## Step 2.1 Access the data from SQL Server using R
+## Step 2.2 Access the data from SQL Server using R
 
 Loading data from SQL Server to R is easy. So let's try it out.
 Open a new RScript in your R development tool and run the following script.
@@ -88,7 +88,7 @@ $ Holiday    : int  1 0 0 0 0 0 0 0 0 0 ...
 $ Snow       : num  0 0 0 0 0 0 0 0 0 0 ...
 ```
 
-## Step 2.2 Prepare the data
+## Step 2.3 Prepare the data
 
 Often times, the data needs to be prepared and cleaned before we start calling the functions. In this tutorial, most of the preparations have already been done.
 We are just going to change the type of 3 columns to factors.
@@ -115,7 +115,7 @@ $ Holiday    : Factor w/ 2 levels "0","1": 2 1 1 1 1 1 1 1 1 1 ...
 $ Snow       : Factor w/ 2 levels "0","1": 1 1 1 1 1 1 1 1 1 1 ...
 ```
 
-## Step 2.3 Train a model
+## Step 2.4 Train a model
 In order to predict, we have to first find a function (model) that best describes the dependency between the variables in our dataset. This step is called training the model. The training dataset will be a subset of the entire dataset.
 We are going to create two different models and see which one is predicting more accurately.
 
@@ -136,7 +136,7 @@ model_dtree <- rxDTree(RentalCount ~ Month + Day + WeekDay + Snow + Holiday, dat
 ```
 Now we have trained and created two different models! Let's use them to predict and see which model is the most accurate.
 
-## Step 2.4 prediction
+## Step 2.5 prediction
 We are now going to use a predict function to predict the Rental Counts using our two models. Finding the right type of model for a specific problem requires some experimentation. 
 This [cheat sheet](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-algorithm-choice/#the-machine-learning-algorithm-cheat-sheet) can be nice to have as a guide.
 
@@ -169,7 +169,7 @@ RentalCount_Pred RentalCount Month Day WeekDay Snow Holiday
 6          40.0000          38     1  12       2    1       0
 ```
 
-## Step 2.4 Compare results
+## Step 2.6 Compare results
 
 Now let's see which of the models gives the best predictions. To be able to find out, we are going to plot the difference between the predicted and actual values.
 R is a great language for quickly and easily visualizing data. We are going to use a basic plotting function to plot 2 graphs.
