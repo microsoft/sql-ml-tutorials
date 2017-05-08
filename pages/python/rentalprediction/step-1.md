@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page-steps
 language: Python
 title: Build a predictive model 
