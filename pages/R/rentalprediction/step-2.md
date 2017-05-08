@@ -50,7 +50,7 @@ SELECT * FROM [dbo].[rental_data];
 
 Loading data from SQL Server to R is easy. So let's try it out.
 Open a new RScript in your R development tool and run the following script.
-Just don't forget to replace "MyServer" with the name of your database instance.
+Just don't forget to replace "MYSQLSERVER" with the name of your database instance.
 
 ```r
 #Connection string to connect to SQL Server named instance
@@ -188,4 +188,4 @@ plot(predict_dtree$RentalCount_Pred - predict_dtree$RentalCount, main = "Differe
 It looks like the decision tree model is more accurate. We have a quite accurate predictor and we feel confident to use it to predict
 what is going to happen on a given situation in the future. 
 
-> Congrats you just created a model with R! Let us now deploy our R code by moving it to SQL Server.
+> Congrats, you just created a model with R! Let us now deploy our R code by moving it to SQL Server.
