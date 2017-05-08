@@ -24,7 +24,7 @@ For example in the folder where SQL Server is installed.
 Sample path: C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Backup
 
 
-1.Once you have the file saved, open SSMS and a new query window to run the following commands to restore the DB.
+2.Once you have the file saved, open SSMS and a new query window to run the following commands to restore the DB.
 Make sure to modify the file paths and server name in the script.
 
 ```sql
