@@ -28,7 +28,7 @@ Download and install SQL Server Management studio: [SSMS](https://msdn.microsoft
 
 
 ## Step 1.3 Enable external script execution              
-1.Run SSMS and open a new query window. Then execute the script below to enable your instance to run R scripts in SQL Server.
+Run SSMS and open a new query window. Then execute the script below to enable your instance to run R scripts in SQL Server.
 
 ```sql
  EXEC sp_configure 'external scripts enabled', 1;
