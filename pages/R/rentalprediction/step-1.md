@@ -12,8 +12,11 @@ redirect_from:
 
 >Predictive modeling is a powerful way to add intelligence to your application. It enables applications to predict outcomes against new data.
 The act of incorporating predictive analytics into your applications involves two major phases: **model training** and **model deployment**
+
 >In this tutorial, you will learn how to create a predictive model in R and deploy it with SQL Server 2016 (and above) Machine Learning Services.
+
 >Here is a [video](https://www.youtube.com/watch?v=YCyj9cdi4Nk&feature=youtu.be) that introduces in-database analytics and predictive modeling with R in SQL Server.
+
 >You can copy code as you follow this tutorial. All code is also available on [GitHub](https://github.com/NelGson/sql-server-samples/tree/master/samples/features/r-services/getting-started/rental-prediction)
 
 ## Step 1.1 Install SQL Server with in-database R / Machine Learning Services
