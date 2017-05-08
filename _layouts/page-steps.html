@@ -89,11 +89,19 @@ layout: default-menutop
 
     {% else %}
 
-      <a class="sql-page_steps-next"
-        href="#"
-        target="_self">
-        Call to Action
-      </a>
+          {% if {{page.language}} == "Python" %}
+
+            <a class="sql-page_steps-next" href="https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/machine-learning-services-tutorials">More SQL Server ML Tutorials</a>
+
+          {% elsif {{page.language}} == "R" %}
+
+            <a class="sql-page_steps-next" href="https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/machine-learning-services-tutorials">More SQL Server ML Tutorials</a>
+
+           {% else %}
+
+            cta6
+
+          {% endif %}
       {% include resources.html %}
     {% endif %}
   {% endif %}
