@@ -1,4 +1,6 @@
-1. If you don’t have SQL Server 2016 Developer (or above) installed, click [here](TODOLINK!!!!) to download the SQL Server exe
+1. If you don’t have SQL Server 2016 Developer (or above) installed, 
+..*Click [**here**](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2017-ctp/) to download the preview of SQL Server 2017
+..*Click here [**here**](http://go.microsoft.com/fwlink/?LinkID=799009) to download the SQL Server 2016 exe  (This version only supports R for Machine Learning)
 1. Run it to start the SQL installer
 1. Click *Accept*> after you have read the license terms
 1. On the *Feature Selection* page, select: R Services (In-Database) for SQL Server 2016 or Machine Learning Services (In-Database) for SQL Server 2017
