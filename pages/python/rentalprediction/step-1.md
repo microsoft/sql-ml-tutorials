@@ -23,7 +23,7 @@ The act of incorporating predictive analytics into your applications involves tw
 1.Download and install [SSMS](https://msdn.microsoft.com/en-us/library/mt238290.aspx)
 
 ## Step 1.3 Enable external script execution              
-1.Run SSMS and open a new query window. Then execute the script below to enable your instance to run Python scripts in SQL Server.
+Run SSMS and open a new query window. Then execute the script below to enable your instance to run Python scripts in SQL Server.
 
 ```sql
  EXEC sp_configure 'external scripts enabled', 1;
