@@ -23,7 +23,7 @@ The act of incorporating predictive analytics into your applications involves tw
 {% include partials/install_sql_server_windows_ML.md %}
 
 ## Step 1.2 Install SQL Server Management Studio (SSMS)
-1. Download and install [SSMS](https://msdn.microsoft.com/en-us/library/mt238290.aspx)
+1.Download and install [SSMS](https://msdn.microsoft.com/en-us/library/mt238290.aspx)
 
 ## Step 1.3 Enable external script execution              
 1.Run SSMS and open a new query window. Then execute the script below to enable your instance to run R scripts in SQL Server.
@@ -40,13 +40,12 @@ The report "R Services - Configuration.rdl" for example provides an overview of 
 To import a report in SSMS, right click on Server Objects in the SSMS Object Explorer and choose Reports -> Custom reports. Upload the .rdl file.*
 
 ## Step 1.4 Install and configure your R development environment   
-1. You need to install an R IDE. Here are some suggestions:
-* R Tools for Visual Studio (RTVS) [Download](https://www.visualstudio.com/vs/rtvs)
-* RStudio [Download](https://www.rstudio.com)
-
+1.You need to install an R IDE. Here are some suggestions:
+-R Tools for Visual Studio (RTVS) [Download](https://www.visualstudio.com/vs/rtvs)
+-RStudio [Download](https://www.rstudio.com)
 2.To be able to use some of the functions in this tutorial, you need to configure your R IDE to point to Microsoft R Client, which is an R Runtime provided by Microsoft. This runtime contains MS R Open packages.
 Follow the steps 1 and 2 [here](https://msdn.microsoft.com/en-us/microsoft-r/r-client-get-started#configure-ide) to install R client and configure your R IDE tool.</p>
 
-> Terrific, now your SQL Server instance is able to host and run R code and you have the necessary development tools installed and configured! 
+>Terrific, now your SQL Server instance is able to host and run R code and you have the necessary development tools installed and configured! 
 The next section will walk you through creating a predictive model using R.
     
