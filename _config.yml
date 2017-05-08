@@ -25,7 +25,7 @@ menu:
   Python:
     logo: python.png
     pages:
-      Build a predictive model: python/rentalprediction
+      Predict ski rentals: python/rentalprediction
       
   
 
