@@ -18,12 +18,12 @@ This information will help us target marketing efforts towards certain groups of
 
 **Restore the sample DB**
 The dataset used in this tutorial is hosted in several SQL Server tables.The tables contain purchasing and return data based on orders.
-1. Download the backup (.bak) file [here](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bak), and save it on a location that SQL Server can access.
+1.Download the backup (.bak) file [here](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bak), and save it on a location that SQL Server can access.
 For example in the folder where SQL Server is installed.
 Sample path: C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Backup
 
 
-1.Once you have the file saved, open SSMS and a new query window to run the following commands to restore the DB.
+2.Once you have the file saved, open SSMS and a new query window to run the following commands to restore the DB.
 Make sure to modify the file paths and server name in the script.
 
 ```sql
@@ -41,21 +41,24 @@ You should now be able to see the database and tables store_sales and store_retu
 You can also verify this by querying the tables in SSMS. Open a new query window and select the following.
 
 ```sql
-USE tutorialdb;
-SELECT * FROM [dbo].[rental_data];
+USE tpcxbb_1gb;
+SELECT TOP (100) * FROM [dbo].[store_sales];
+SELECT TOP (100) * FROM [dbo].[store_returns];
 ```
+>You now have the database and the data to perform clustering.
 
 ## Step 2.2 Access the data from SQL Server using R
 
 Loading data from SQL Server to R is easy. So let's try it out.
+
 Open a new RScript in your R development tool and run the following script.
 Just don't forget to replace "MYSQLSERVER" with the name of your database instance.
 
-In the query we are using to select data from SQL Server, we are separating customers along the following dimensions:
-return frequency
-⋅⋅*return order ratio (total number of orders partially or fully returned versus the total number of orders)
-⋅⋅*return item ratio (total number of items returned versus the number of items purchased)
-⋅⋅*return amount ration (total monetary amount of items returned versus the amount purchased)                 
+In the query we are using to select data from SQL Server, we are separating customers along the following dimensions
+* return frequency
+* return order ratio (total number of orders partially or fully returned versus the total number of orders)
+* return item ratio (total number of items returned versus the number of items purchased)
+* return amount ration (total monetary amount of items returned versus the amount purchased)                 
 
 ```r
 #Connection string to connect to SQL Server. Don't forget to replace MyServer with the name of your SQL Server instance
@@ -123,9 +126,11 @@ customer orderRatio itemsRatio monetaryRatio frequency
 6    72426          0          0      0.000000         0
 ```
 
+ou have now read the data from SQL Server to R and explored it.
+
 ## Step 2.3 Determine number of clusters
 
-Using the clustering algorithm <b>Kmeans</b>, is one of the simplest and most well known ways of grouping data.
+Using the clustering algorithm **Kmeans**, is one of the simplest and most well known ways of grouping data.
 Now that we have our selected data, we can group the data into clusters using the iterative data mining algorithm called Kmeans.
 
 The algorithm accepts two inputs: The data itself, and a predefined number "k", the number of clusters.
@@ -158,6 +163,8 @@ plot(1:20, wss, type = "b", xlab = "Number of Clusters", ylab = "Within groups s
 Finding the right number of clusters using an elbow graph
                 
 Based on the graph above, it looks like *k = 4* would be a good value to try. That will group our customers into 4 clusters.
+
+>Now we have derived the number of clusters to use.
 
 
 ## Step 2.4 Perform Clustering
