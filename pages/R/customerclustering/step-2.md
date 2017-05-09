@@ -149,7 +149,6 @@ This is how the algorithm works:
 The number of clusters has to be predefined and the quality of the clusters is heavily dependent on the correctness of the k value specified.
 You could just randomly pick a number of clusters, run Kmeans and iterate your way to a good number. 
 Or we can use R to evaluate which number of clusters is best for our dataset. Let's determine the number of clusters using R!             
-
 ```r
 #Determine number of clusters
 #Using a plot of the within groups sum of squares, by number of clusters extracted, can help determine the appropriate number of clusters
@@ -159,12 +158,13 @@ wss <- (nrow(customer_data) - 1) * sum(apply(customer_data, 2, var))
        wss[i] <- sum(kmeans(customer_data, centers = i)$withinss)
 plot(1:20, wss, type = "b", xlab = "Number of Clusters", ylab = "Within groups sum of squares")
 ```
+
 ![Elbow graph](https://sqlchoice.blob.core.windows.net/sqlchoice/static/images/Elbow_graph.JPG)
 Finding the right number of clusters using an elbow graph
                 
 Based on the graph above, it looks like *k = 4* would be a good value to try. That will group our customers into 4 clusters.
 
->Now we have derived the number of clusters to use.
+>Now we have derived the number of clusters to use when clustering.
 
 
 ## Step 2.4 Perform Clustering
@@ -180,6 +180,8 @@ set.seed(10);
 clust <- rxKmeans( ~ orderRatio + itemsRatio + monetaryRatio + frequency, customer_returns, numClusters=4
          , outFile=return_cluster, outColName="cluster" , extraVarsToWrite=c("customer"), overwrite=TRUE);
 ```
+
+>Great, now you have performed clustering in R!
 
 ## Step 2.5 Analyze results - Plot clusters
 
@@ -200,13 +202,18 @@ Using Kmeans is just a data mining method and you still need to spend time on an
 Depending on your data, you might need to use different methods to analyze the result. Here we just want to show that plotting can be one way.
 Let's try something else and see if we can get some more insight from that.
 
+>Now you have explored plotting as a method to evaluate the clusters.
+
 
 ## Step 2.6 Analyze cluster means
 
 The clust object contains the results from our Kmeans clustering. We are going to look at some mean values.
+
 ```r
 #Look at the clustering details and analyze results
-clust   
+clust
+```
+
 ```results
 Call:
 rxKmeans(formula = ~orderRatio + itemsRatio + monetaryRatio + 
@@ -228,19 +235,21 @@ Cluster means:
 Within cluster sum of squares by cluster:
          1          2          3          4 
     0.0000  1329.0160 18561.3157   363.2188 
+    
 ```
 
 Focusing on the cluster mean values, it seems like we can actually interpret something. 
 Just to refresh our memory, here are the definitions of our variables:
 
-⋅⋅*frequency = return frequency
-⋅⋅*orderRatio = return order ratio (total number of orders partially or fully returned versus the total number of orders)
-⋅⋅*itemsRatio = return item ratio (total number of items returned versus the number of items purchased)
-⋅⋅*monetaryRatio = return amount ratio (total monetary amount of items returned versus the amount purchased)
+* frequency = return frequency
+* orderRatio = return order ratio (total number of orders partially or fully returned versus the total number of orders)
+* itemsRatio = return item ratio (total number of items returned versus the number of items purchased)
+* monetaryRatio = return amount ratio (total monetary amount of items returned versus the amount purchased)
 
 Some examples of what the mean values tell us?
-⋅⋅*Well, cluster 1 (the largest cluster) seems to be a group of customers that either don't have any orders placed. All values are zero.
-⋅⋅*And cluster 3 seems to be a group that stands out in terms of return behaviour. It seems to be a group that returns most of orders placed.
+
+* Well, cluster 1 (the largest cluster) seems to be a group of customers that either don't have any orders placed. All values are zero.
+*And cluster 3 seems to be a group that stands out in terms of return behaviour. It seems to be a group that returns most of orders placed.
                                   
 Data mining using Kmeans often requires further analysis of the results, and further steps to better understand each cluster, 
 but it provides some very good leads. Cluster 1 is a set of customers who are clearly not active. Perhaps we can target marketing efforts towards this group to trigger an interest for purchases? 
@@ -249,6 +258,7 @@ Let's query the database for their email addresses so that we can send a marketi
 Use the following select statement to use the cluster data to select email addresses to customers in a specific cluster from te tables in SQL Server. 
 
 Open a new query in SSMS and run the following select statement:
+
 ```sql
 USE [tpcxbb_1gb]
 SELECT customer.[c_email_address], customer.c_customer_sk
@@ -259,4 +269,4 @@ SELECT customer.[c_email_address], customer.c_customer_sk
   WHERE r.cluster = 3
 ```
 
-> Congrats you just performed clustering with R! Let us now deploy our R code by moving it to SQL Server.
+>Congrats you just performed clustering with R! Let us now deploy our R code by moving it to SQL Server.
