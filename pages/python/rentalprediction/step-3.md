@@ -159,4 +159,4 @@ SELECT * FROM py_rental_predictions;
 ```
 
 
-> Congrats you just deployed a predictive model in SQL Server using Python! 
+> Congrats, you just deployed a predictive model in SQL Server using Python! 
