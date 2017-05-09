@@ -72,7 +72,7 @@ layout: default-menutop
     {{content}}
   </div>
 
-  {% if site.steps %}
+   {% if site.steps %}
     {% assign stepsSize = site.steps | size %}
     {% if baseNumber < stepsSize %}
       {% assign nextNumber = baseNumber | plus: 1 %}
@@ -82,7 +82,7 @@ layout: default-menutop
       {% endif %}
 
       <a class="sql-page_steps-next"
-        href="{{ baseLink[0] | append: separator | append: number | append: '.html' | replace: '//', '/' | relative_url }}"
+        href="{{ baseLink[0] | append: separator | append: nextNumber | append: '.html' | replace: '//', '/' | relative_url }}"
         target="_self">
         Go to step {{nextNumber}}
       </a>
