@@ -67,6 +67,16 @@ resources:
   pre: Learn more about
   text: SQL Server 2017
   link: https://www.microsoft.com/en-us/sql-server/sql-server-2017
+ sourcecodepy:
+  pre: Get the sample code for this tutorial
+  text: here
+  link: https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/machine-learning-services/python/getting-started/rental-prediction
+  condition: Python
+sourcecodeR:
+  pre: Get the sample code for this tutorial
+  text: here
+  link: https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/r-services/getting-started
+  condition: R
   
 # Build settings
 markdown: kramdown
