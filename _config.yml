@@ -49,6 +49,14 @@ resources:
     pre: Learn more about
     text: SQL Server 2017
     link: https://www.microsoft.com/en-us/sql-server/sql-server-2017
+  connect:
+    pre: Watch more
+    text: Connect(); event videos
+    link: https://channel9.msdn.com/Events/Connect/2016
+  labs:
+    pre: Browse our
+    text: Virtual Labs Gallery
+    link: https://technet.microsoft.com/en-us/virtuallabs
   
 # Build settings
 markdown: kramdown
