@@ -57,6 +57,26 @@ resources:
     pre: Browse our
     text: Virtual Labs Gallery
     link: https://technet.microsoft.com/en-us/virtuallabs
+      sqlserver-csharp:
+    pre: Check out what's new with
+    text: SQL Server + C# on Channel 9
+    link: https://channel9.msdn.com/Events/Connect/2016/151
+    condition: C#
+  sqlserver-java:
+    pre: Check out what's new with
+    text: SQL Server + Java on Channel 9
+    link: https://channel9.msdn.com/Events/Connect/2016/152
+    condition: Java
+  sqlserver-node:
+    pre: Check out what's new with
+    text: SQL Server + Node.js on Channel 9
+    link: https://channel9.msdn.com/Events/Connect/2016/160
+    condition: Node.js
+  sqlserver-php:
+    pre: Check out what's new with
+    text: SQL Server + PHP on Channel 9
+    link: https://channel9.msdn.com/Events/Connect/2016/182
+    condition: PHP
   
 # Build settings
 markdown: kramdown
