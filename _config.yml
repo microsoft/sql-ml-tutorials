@@ -72,7 +72,7 @@ resources:
   text: here
   link: https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/machine-learning-services/python/getting-started/rental-prediction
   condition: Python
-sourcecodeR:
+ sourcecodeR:
   pre: Get the sample code for this tutorial
   text: here
   link: https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/r-services/getting-started
