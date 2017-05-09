@@ -67,10 +67,6 @@ resources:
   pre: Learn more about
   text: SQL Server on Linux
   link: https://channel9.msdn.com/Events/Connect/2016/101
- connect:
-  pre: Watch more
-  text: Connect(); event videos
-  link: https://channel9.msdn.com/Events/Connect/2016
   
 # Build settings
 markdown: kramdown
