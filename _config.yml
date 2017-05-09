@@ -36,43 +36,43 @@ resources:
     text: SQL Server + R on Channel 9
     link: https://channel9.msdn.com/Events/Connect/2016/151
     condition: R
-   sqlserver-py:
+ sqlserver-py:
     pre: Check out what's new with
     text: SQL Server + Python on Channel 9
     link: https://channel9.msdn.com/Events/Connect/2016/189
     condition: Python
-   github:
+ github:
     pre: Browse more SQL Server code samples on our
     text: GitHub repository
     link: https://github.com/Microsoft/sql-server-samples/tree/master/samples/features
-   linux:
+ linux:
     pre: Learn more about
     text: SQL Server 2017
     link: https://www.microsoft.com/en-us/sql-server/sql-server-2017
-   connect:
+ connect:
     pre: Watch more
     text: Connect(); event videos
     link: https://channel9.msdn.com/Events/Connect/2016
-   labs:
+ labs:
     pre: Browse our
     text: Virtual Labs Gallery
     link: https://technet.microsoft.com/en-us/virtuallabs
-   sqlserver-csharp:
+ sqlserver-csharp:
     pre: Check out what's new with
     text: SQL Server + C# on Channel 9
     link: https://channel9.msdn.com/Events/Connect/2016/151
     condition: C#
-   sqlserver-java:
+ sqlserver-java:
     pre: Check out what's new with
     text: SQL Server + Java on Channel 9
     link: https://channel9.msdn.com/Events/Connect/2016/152
     condition: Java
-  sqlserver-node:
+ sqlserver-node:
     pre: Check out what's new with
     text: SQL Server + Node.js on Channel 9
     link: https://channel9.msdn.com/Events/Connect/2016/160
     condition: Node.js
-  sqlserver-php:
+ sqlserver-php:
     pre: Check out what's new with
     text: SQL Server + PHP on Channel 9
     link: https://channel9.msdn.com/Events/Connect/2016/182
