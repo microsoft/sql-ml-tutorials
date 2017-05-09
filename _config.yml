@@ -60,13 +60,13 @@ resources:
   link: https://channel9.msdn.com/Events/Connect/2016/189
   condition: Python
  github:
-  pre: Browse more SQL Server code samples (In-Memory, Dynamic Data Masking, R, etc.) on our
+  pre: Browse more SQL Server code samples on our
   text: GitHub repository
-  link: https://github.com/Microsoft/sql-server-samples/tree/master/samples/
- linux:
+  link: https://github.com/Microsoft/sql-server-samples/tree/master/samples/features
+ sql17:
   pre: Learn more about
-  text: SQL Server on Linux
-  link: https://channel9.msdn.com/Events/Connect/2016/101
+  text: SQL Server 2017
+  link: https://www.microsoft.com/en-us/sql-server/sql-server-2017
   
 # Build settings
 markdown: kramdown
