@@ -18,6 +18,7 @@ This information will help us target marketing efforts towards certain groups of
 
 **Restore the sample DB**
 The dataset used in this tutorial is hosted in several SQL Server tables.The tables contain purchasing and return data based on orders.
+
 1.Download the backup (.bak) file [here](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bak), and save it on a location that SQL Server can access.
 For example in the folder where SQL Server is installed.
 Sample path: C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Backup
