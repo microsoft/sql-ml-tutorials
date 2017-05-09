@@ -9,7 +9,7 @@ permalink: /R/customerclustering/step/2
 >R is a programming language that makes statistical and math computation easy, and is very useful for any machine learning/predictive analytics/statistics work.
 There are lots of tutorials out there on R. This is one example of a [tutorial](https://www.tutorialspoint.com/r/) to learn more about R.
                 
->In this specific scenario, we have an online store and we want to group customers based on their order and return behaviour. 
+In this specific scenario, we have an online store and we want to group customers based on their order and return behaviour. 
 This information will help us target marketing efforts towards certain groups of customers. Before we go into how you can use R to perform this type of customer grouping using clustering in SQL Server 2016, we will look at the scenario in R.
 
 
