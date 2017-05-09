@@ -2,7 +2,7 @@
 layout: page-steps
 language: R
 title: Perform customer clustering
-permalink: /ML/R/customerclustering/step/3
+permalink: /R/customerclustering/step/3
 ---
 
 
