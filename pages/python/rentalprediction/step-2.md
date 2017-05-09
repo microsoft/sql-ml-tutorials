@@ -23,7 +23,7 @@ For example in the folder where SQL Server is installed.
 Sample path: C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Backup
 
 
-1.Once you have the file saved, open SSMS and a new query window to run the following commands to restore the DB.
+2.Once you have the file saved, open SSMS and a new query window to run the following commands to restore the DB.
 Make sure to modify the file paths and server name in the script.
 
 ```SQL
@@ -34,7 +34,8 @@ RESTORE DATABASE TutorialDB
    WITH 
                 MOVE 'TutorialDB' TO 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\TutorialDB.mdf'
                 ,MOVE 'TutorialDB_log' TO 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\TutorialDB.ldf';  
-GO  ```
+GO  
+```
 
 
 A table named rental_data containing the dataset should exist in the restored SQL Server database.
@@ -45,11 +46,15 @@ You can verify this by querying the table in SSMS.
 USE tutorialdb;
 SELECT * FROM [dbo].[rental_data];
 ```
+
+>You now have the database and the data to use for training the model.
+
 ## Step 2.2 Explore the data with Python
 
 Loading data from SQL Server to Python is easy. So let's try it out.
+
 Open a new Python script in your IDE and run the following script.
-Just don't forget to replace "MyServer" with the name of your database instance.
+Just don't forget to replace "MYSQLSERVER" with the name of your database instance.
 
 ```python
 import pandas as pd
@@ -117,8 +122,11 @@ Data frame:      Day  Holiday  Month  RentalCount  Snow  WeekDay  Year
 [453 rows x 7 columns]
 ```
 
+>You have now read the data from SQL Server to Python and explored it.
+
 ## Step 2.3 Train a model
-In order to predict, we have to first find a function (model) that best describes the dependency between the variables in our dataset. This step is called training the model. The training dataset will be a subset of the entire dataset.
+In order to predict, we first have to find a function (model) that best describes the dependency between the variables in our dataset. This step is called **training the model**. The training dataset will be a subset of the entire dataset.
+
 We are going to create a model using a linear regression algorithm.
 
 ```python
@@ -142,7 +150,7 @@ Training set shape: (362, 7)
 Testing set shape: (91, 7)
 ```
 
-Now we have trained a linear regression model in Python! Let's use it to predict the rental count.
+>Now we have trained a linear regression model in Python! Let's use it to predict the rental count.
 
 ## Step 2.4 Prediction
 We are now going to use a predict function to predict the Rental Counts using our two models. 
