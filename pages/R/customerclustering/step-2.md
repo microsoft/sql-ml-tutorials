@@ -5,7 +5,7 @@ title: Perform customer clustering
 permalink: /R/customerclustering/step/2
 ---
 
->After getting SQL Server with Machine Learning Services installed and your R IDE configured on your machine, you can now proceed and perform clustering using R.
+After getting SQL Server with Machine Learning Services installed and your R IDE configured on your machine, you can now proceed and perform clustering using R.
 
 R is a programming language that makes statistical and math computation easy, and is very useful for any machine learning/predictive analytics/statistics work. There are lots of tutorials out there on R. This is one example of a [tutorial](https://www.tutorialspoint.com/r/) to learn more about R.
                 
