@@ -46,7 +46,9 @@ USE tpcxbb_1gb;
 SELECT TOP (100) * FROM [dbo].[store_sales];
 SELECT TOP (100) * FROM [dbo].[store_returns];
 ```
+
 >You now have the database and the data to perform clustering.
+
 
 ## Step 2.2 Access the data from SQL Server using R
 
@@ -127,7 +129,7 @@ customer orderRatio itemsRatio monetaryRatio frequency
 6    72426          0          0      0.000000         0
 ```
 
-ou have now read the data from SQL Server to R and explored it.
+>You have now read the data from SQL Server to R and explored it.
 
 ## Step 2.3 Determine number of clusters
 
