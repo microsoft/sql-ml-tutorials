@@ -27,6 +27,7 @@ CREATE TABLE rental_py_models (
 );
 GO
 ```
+>You now have a table where the model can be saved.
 
 ## Step 3.2 Create stored procedure for generating the model
 
@@ -77,7 +78,7 @@ INSERT INTO rental_py_models (model_name, model) VALUES('linear_model', @model);
 
 ```
 
-The model is now saved in the database as a binary object.
+>The model is now saved in the database as a binary object.
 
 ## Step 3.3 Create stored procedure for prediction
 
