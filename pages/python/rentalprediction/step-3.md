@@ -33,7 +33,7 @@ GO
 We are now going to create a stored procedure in SQL Server to use the Python code we wrote in the previous module and generate the linear regression model inside the database.
 The Python code will be embedded in the TSQL statement.
 
-1.Create the stored procedure to train/generate the model
+Now create the stored procedure to train/generate the model
 
 ```sql
 -- Stored procedure that trains and generates a Python model using the rental_data and a decision tree algorithm
@@ -79,7 +79,7 @@ INSERT INTO rental_py_models (model_name, model) VALUES('linear_model', @model);
 
 The model is now saved in the database as a binary object.
 
-## Step 3.2 Create stored procedure for prediction
+## Step 3.3 Create stored procedure for prediction
 
 We are now very close to deploying our predicting model so that we can consume it from our applications.
 This last step includes creating a stored procedure that uses our model to predict the rental count.
@@ -127,7 +127,7 @@ OutputDataSet = pd.concat([predictions_df, df["RentalCount"], df["Month"], df["D
 END;
 GO
 ```
-1.Create a table for storing the predictions
+2.Create a table for storing the predictions
 ```sql
 DROP TABLE IF EXISTS [dbo].[py_rental_predictions];
 GO
@@ -145,7 +145,7 @@ CREATE TABLE [dbo].[py_rental_predictions](
 GO
 ```
 
-1.Execute the stored procedure to predict rental counts  
+3.Execute the stored procedure to predict rental counts  
 
 ```sql
 TRUNCATE TABLE py_rental_predictions;
