@@ -15,9 +15,9 @@ we will have on a future date. This information will help us to get ready from a
 
 >During **model training**, you create and train a predictive model by showing it sample data along with the outcomes. Then you save this model so that you can use it later when you want to make predictions against new data.
 
-## Step 2.1 Load the sample data 
+## Step 2.1 Restore the sample DB 
 
-**Restore the sample DB**
+
 The dataset used in this tutorial is hosted in a SQL Server table.The table contains rental data from previous years.
 1. Download the backup (.bak) file [here](https://deve2e.azureedge.net/sqlchoice/static/TutorialDB.bak), and save it on a location that SQL Server can access.
 For example in the folder where SQL Server is installed.
@@ -35,7 +35,8 @@ RESTORE DATABASE TutorialDB
    WITH 
                 MOVE 'TutorialDB' TO 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\TutorialDB.mdf'
                 ,MOVE 'TutorialDB_log' TO 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\TutorialDB.ldf';  
-GO  ```
+GO  
+```
 
 
 A table named rental_data containing the dataset should exist in the restored SQL Server database.
@@ -46,6 +47,9 @@ You can verify this by querying the table in SSMS.
 USE tutorialdb;
 SELECT * FROM [dbo].[rental_data];
 ```
+
+>You now have the database and the data to use for training the model.
+
 ## Step 2.2 Access the data from SQL Server using R
 
 Loading data from SQL Server to R is easy. So let's try it out.
@@ -87,6 +91,7 @@ $ WeekDay    : num  2 5 1 2 5 4 1 7 6 1 ...
 $ Holiday    : int  1 0 0 0 0 0 0 0 0 0 ...
 $ Snow       : num  0 0 0 0 0 0 0 0 0 0 ...
 ```
+>You have now read the data from SQL Server to R and explored it.
 
 ## Step 2.3 Prepare the data
 
@@ -114,6 +119,7 @@ $ WeekDay    : Factor w/ 7 levels "1","2","3","4",..: 2 5 1 2 5 4 1 7 6 1 ...
 $ Holiday    : Factor w/ 2 levels "0","1": 2 1 1 1 1 1 1 1 1 1 ...
 $ Snow       : Factor w/ 2 levels "0","1": 1 1 1 1 1 1 1 1 1 1 ...
 ```
+>The data is nw prepared for training.
 
 ## Step 2.4 Train a model
 In order to predict, we have to first find a function (model) that best describes the dependency between the variables in our dataset. This step is called training the model. The training dataset will be a subset of the entire dataset.
@@ -134,7 +140,9 @@ model_linmod <- rxLinMod(RentalCount ~  Month + Day + WeekDay + Snow + Holiday, 
 #Model 2: Use rxDTree to create a decision tree model. We are training the data using the training data set
 model_dtree <- rxDTree(RentalCount ~ Month + Day + WeekDay + Snow + Holiday, data = train_data);
 ```
-Now we have trained and created two different models! Let's use them to predict and see which model is the most accurate.
+>Now we have trained and created two different models! Let's use them to predict and see which model is the most accurate.
+
+
 
 ## Step 2.5 prediction
 We are now going to use a predict function to predict the Rental Counts using our two models. Finding the right type of model for a specific problem requires some experimentation. 
@@ -169,6 +177,8 @@ RentalCount_Pred RentalCount Month Day WeekDay Snow Holiday
 6          40.0000          38     1  12       2    1       0
 ```
 
+>Congrats you just created two models with R! 
+
 ## Step 2.6 Compare results
 
 Now let's see which of the models gives the best predictions. To be able to find out, we are going to plot the difference between the predicted and actual values.
@@ -188,4 +198,4 @@ plot(predict_dtree$RentalCount_Pred - predict_dtree$RentalCount, main = "Differe
 It looks like the decision tree model is more accurate. We have a quite accurate predictor and we feel confident to use it to predict
 what is going to happen on a given situation in the future. 
 
-> Congrats, you just created a model with R! Let us now deploy our R code by moving it to SQL Server.
+> Congrats, you have decided on which model to use! Let us now deploy our R code by moving it to SQL Server.
