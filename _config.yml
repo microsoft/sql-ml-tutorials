@@ -3,7 +3,7 @@
 title: Get Started with SQL Server Machine Learning Services
 description: >
  Get Started with SQL Server Machine Learning Services
-url: "https://microsoft.github.io/sqldev/ml/"
+url: "https://microsoft.github.io/sql-ml-tutorials/"
 
 disqus:
   shortname: sqlchoice
@@ -29,12 +29,12 @@ menu:
       
   
 resources:
-   sqlserver-R:
+ sqlserver-R:
     pre: Check out what's new with
     text: SQL Server + R on Channel 9
     link: https://channel9.msdn.com/Events/Connect/2016/151
     condition: R
-sqlserver-csharp:
+  sqlserver-csharp:
     pre: Check out what's new with
     text: SQL Server + C# on Channel 9
     link: https://channel9.msdn.com/Events/Connect/2016/151
