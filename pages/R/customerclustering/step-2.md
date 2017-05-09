@@ -55,10 +55,10 @@ Open a new RScript in your R development tool and run the following script.
 Just don't forget to replace "MYSQLSERVER" with the name of your database instance.
 
 In the query we are using to select data from SQL Server, we are separating customers along the following dimensions
-- return frequency
-- return order ratio (total number of orders partially or fully returned versus the total number of orders)
-- return item ratio (total number of items returned versus the number of items purchased)
-- return amount ration (total monetary amount of items returned versus the amount purchased)                 
+- *return frequency*
+- *return order ratio (total number of orders partially or fully returned versus the total number of orders)*
+- *return item ratio (total number of items returned versus the number of items purchased)*
+- *return amount ration (total monetary amount of items returned versus the amount purchased)*                 
 
 ```r
 #Connection string to connect to SQL Server. Don't forget to replace MyServer with the name of your SQL Server instance
@@ -241,10 +241,10 @@ Within cluster sum of squares by cluster:
 Focusing on the cluster mean values, it seems like we can actually interpret something. 
 Just to refresh our memory, here are the definitions of our variables:
 
-* frequency = return frequency
-* orderRatio = return order ratio (total number of orders partially or fully returned versus the total number of orders)
-* itemsRatio = return item ratio (total number of items returned versus the number of items purchased)
-* monetaryRatio = return amount ratio (total monetary amount of items returned versus the amount purchased)
+* *frequency = return frequency*
+* *orderRatio = return order ratio (total number of orders partially or fully returned versus the total number of orders)*
+* *itemsRatio = return item ratio (total number of items returned versus the number of items purchased)*
+* *monetaryRatio = return amount ratio (total monetary amount of items returned versus the amount purchased)*
 
 Some examples of what the mean values tell us?
 
