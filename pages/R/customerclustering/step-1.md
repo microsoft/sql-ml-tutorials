@@ -10,9 +10,10 @@ redirect_from:
 ---
 
 
-In this tutorial, we are going to get ourselves familiar with clustering. **Clustering** can be explained as organizing data into groups where members of a group are similar in some way.</p>
+In this tutorial, we are going to get ourselves familiar with clustering. **Clustering** can be explained as organizing data into groups where members of a group are similar in some way.
+
 We will be using the **Kmeans** algorithm to perform the clustering of customers. This can for example be used to target a specific group of customers for marketing efforts. 
-Kmeans clustering is an unsupervised learning algorithm that tries to group data based on similarities. Unsupervised learning means that there is no outcome to be predicted, and the algorithm just tries to find patterns in the data.</p>
+Kmeans clustering is an unsupervised learning algorithm that tries to group data based on similarities. Unsupervised learning means that there is no outcome to be predicted, and the algorithm just tries to find patterns in the data.
 
 You will learn how to perform clustering using Kmeans and analyze the results. We will also cover how you can deploy a clustering solution using SQL Server.
 You can copy code as you follow the tutorial. All code is also available on [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/r-services/getting-started/customer-clustering).
@@ -37,17 +38,19 @@ RECONFIGURE WITH OVERRIDE
 You can read more about configuring Machine Learning Services [here](https://docs.microsoft.com/en-us/sql/advanced-analytics/r-services/set-up-sql-server-r-services-in-database).
 **Don't forget to restart your SQL Server Instance after the configuration!** You can restart in SSMS by right clicking on the instance name in the Object Explorer and choose *Restart*.
  
-*Optional: If you want, you can also [download SSMS custom reports](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/r-services/ssms-custom-reports/R%20Services%20-%20Configuration.rdl) available on github. 
+Optional: If you want, you can also [download SSMS custom reports](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/r-services/ssms-custom-reports/R%20Services%20-%20Configuration.rdl) available on github. 
 The report "R Services - Configuration.rdl" for example provides an overview of the R runtime parameters and gives you an option to configure your instance with a button click.
-To import a report in SSMS, right click on Server Objects in the SSMS Object Explorer and choose Reports -> Custom reports. Upload the .rdl file.*
+To import a report in SSMS, right click on Server Objects in the SSMS Object Explorer and choose Reports -> Custom reports. Upload the .rdl file.
+
+>Now you have enabled external script execution so that you can run R code inside SQL Server!
 
 ## Install and configure your R development environment   
-1. You need to install an R IDE. Here are some suggestions:<br><br>
+1. You need to install an R IDE. Here are some suggestions:
 R Tools for Visual Studio (RTVS) [Download](https://www.visualstudio.com/vs/rtvs)
 RStudio [Download](https://www.rstudio.com)
 
-1.To be able to use some of the functions in this tutorial, you need to configure your R IDE to point to Microsoft R Client, which is an R Runtime provided by Microsoft. This runtime contains MS R Open packages.
-Follow the steps 1 and 2 [here](https://msdn.microsoft.com/en-us/microsoft-r/r-client-get-started#configure-ide) to install R client and configure your R IDE tool.</p>
+2. To be able to use some of the functions in this tutorial, you need to configure your R IDE to point to Microsoft R Client, which is an R Runtime provided by Microsoft. This runtime contains MS R Open packages.
+Follow the steps 1 and 2 [here](https://msdn.microsoft.com/en-us/microsoft-r/r-client-get-started#configure-ide) to install R client and configure your R IDE tool.
 
 > Terrific, now your SQL Server instance is able to host and run R code and you have the necessary development tools installed and configured! The next section will walk you through how to do clustering using R.
     
