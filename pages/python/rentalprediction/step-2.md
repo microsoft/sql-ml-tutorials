@@ -32,11 +32,10 @@ GO
 RESTORE DATABASE TutorialDB  
    FROM DISK = 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Backup\TutorialDB.bak'
    WITH 
-                MOVE 'TutorialDB' TO 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\TutorialDB.mdf'
-                ,MOVE 'TutorialDB_log' TO 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\TutorialDB.ldf';  
-GO  
+   MOVE 'TutorialDB' TO 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\TutorialDB.mdf'
+   ,MOVE 'TutorialDB_log' TO 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\TutorialDB.ldf';  
+GO 
 ```
-
 
 A table named rental_data containing the dataset should exist in the restored SQL Server database.
 You can verify this by querying the table in SSMS.
@@ -69,32 +68,32 @@ conn_str = 'Driver=SQL Server;Server=MYSQLSERVER;Database=TutorialDB;Trusted_Con
 
 #Define the columns we wish to import
  column_info = { 
-            "Year" : { "type" : "integer" },
-            "Month" : { "type" : "integer" }, 
-            "Day" : { "type" : "integer" }, 
-            "RentalCount" : { "type" : "integer" }, 
-            "WeekDay" : { 
-                "type" : "factor", 
-                "levels" : ["1", "2", "3", "4", "5", "6", "7"]
-            },
-            "Holiday" : { 
-                "type" : "factor", 
-                "levels" : ["1", "0"]
-            },
-            "Snow" : { 
-                "type" : "factor", 
-                "levels" : ["1", "0"]
-            }
-        }
+         "Year" : { "type" : "integer" },
+         "Month" : { "type" : "integer" }, 
+         "Day" : { "type" : "integer" }, 
+         "RentalCount" : { "type" : "integer" }, 
+         "WeekDay" : { 
+             "type" : "factor", 
+             "levels" : ["1", "2", "3", "4", "5", "6", "7"]
+         },
+         "Holiday" : { 
+             "type" : "factor", 
+             "levels" : ["1", "0"]
+         },
+         "Snow" : { 
+             "type" : "factor", 
+             "levels" : ["1", "0"]
+         }
+     }
 
 #Get the data from SQL Server Table
 data_source = RxSqlServerData(table="dbo.rental_data",
-                                  connectionString=conn_str, colInfo=column_info)
-    computeContext = RxInSqlServer(
-        connectionString = conn_str,
-        numTasks = 1,
-        autoCleanup = False
-        )
+                               connectionString=conn_str, colInfo=column_info)
+computeContext = RxInSqlServer(
+     connectionString = conn_str,
+     numTasks = 1,
+     autoCleanup = False
+)
      
     
 RxInSqlServer(connectionString=conn_str, numTasks=1, autoCleanup=False)
