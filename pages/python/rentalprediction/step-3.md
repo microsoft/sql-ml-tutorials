@@ -22,8 +22,8 @@ USE TutorialDB;
 DROP TABLE IF EXISTS rental_py_models;
 GO
 CREATE TABLE rental_py_models (
-                model_name VARCHAR(30) NOT NULL DEFAULT('default model') PRIMARY KEY,
-                model VARBINARY(MAX) NOT NULL
+	model_name VARCHAR(30) NOT NULL DEFAULT('default model') PRIMARY KEY,
+	model VARBINARY(MAX) NOT NULL
 );
 GO
 ```
@@ -119,11 +119,11 @@ import pandas as pd
 predictions_df = pd.DataFrame(lin_predictions)  
 OutputDataSet = pd.concat([predictions_df, df["RentalCount"], df["Month"], df["Day"], df["WeekDay"], df["Snow"], df["Holiday"], df["Year"]], axis=1)
 '
-	, @input_data_1 = N'Select "RentalCount", "Year" ,"Month", "Day", "WeekDay", "Snow", "Holiday"  from rental_data where Year = 2015'
-	, @input_data_1_name = N'rental_score_data'
-	, @params = N'@py_model varbinary(max)'
-	, @py_model = @py_model
-	with result sets (("RentalCount_Predicted" float, "RentalCount" float, "Month" float,"Day" float,"WeekDay" float,"Snow" float,"Holiday" float, "Year" float));
+, @input_data_1 = N'Select "RentalCount", "Year" ,"Month", "Day", "WeekDay", "Snow", "Holiday"  from rental_data where Year = 2015'
+, @input_data_1_name = N'rental_score_data'
+, @params = N'@py_model varbinary(max)'
+, @py_model = @py_model
+with result sets (("RentalCount_Predicted" float, "RentalCount" float, "Month" float,"Day" float,"WeekDay" float,"Snow" float,"Holiday" float, "Year" float));
 			  
 END;
 GO
