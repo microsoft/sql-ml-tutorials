@@ -58,9 +58,7 @@ BEGIN
         lin_model.fit(df[columns], df[target])
         import pickle
         #Before saving the model to the DB table, we need to convert it to a binary object
-        trained_model = pickle.dumps(lin_model)
-'
-
+        trained_model = pickle.dumps(lin_model)'
 , @input_data_1 = N'select "RentalCount", "Year", "Month", "Day", "WeekDay", "Snow", "Holiday" from dbo.rental_data where Year < 2015'
 , @input_data_1_name = N'rental_train_data'
 , @params = N'@trained_model varbinary(max) OUTPUT'
