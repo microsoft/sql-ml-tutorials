@@ -86,7 +86,7 @@ This last step includes creating a stored procedure that uses our model to predi
 1.Create a stored procedure that predicts using our model
 
 ```sql
-ROP PROCEDURE IF EXISTS py_predict_rentalcount;
+DROP PROCEDURE IF EXISTS py_predict_rentalcount;
 GO
 CREATE PROCEDURE py_predict_rentalcount (@model varchar(100))
 AS
