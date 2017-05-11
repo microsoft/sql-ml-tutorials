@@ -83,7 +83,7 @@ INSERT INTO rental_py_models (model_name, model) VALUES('linear_model', @model);
 We are now very close to deploying our predicting model so that we can consume it from our applications.
 This last step includes creating a stored procedure that uses our model to predict the rental count.
 
-1.Create a stored procedure that predicts using our model
+1. Create a stored procedure that predicts using our model
 
 ```sql
 DROP PROCEDURE IF EXISTS py_predict_rentalcount;
@@ -126,7 +126,7 @@ with result sets (("RentalCount_Predicted" float, "RentalCount" float, "Month" f
 END;
 GO
 ```
-2.Create a table for storing the predictions
+2. Create a table for storing the predictions
 ```sql
 DROP TABLE IF EXISTS [dbo].[py_rental_predictions];
 GO
@@ -144,7 +144,7 @@ CREATE TABLE [dbo].[py_rental_predictions](
 GO
 ```
 
-3.Execute the stored procedure to predict rental counts  
+3. Execute the stored procedure to predict rental counts  
 
 ```sql
 TRUNCATE TABLE py_rental_predictions;
