@@ -46,19 +46,28 @@ BEGIN
     EXECUTE sp_execute_external_script
       @language = N'Python'
     , @script = N'
-        df = rental_train_data
-        # Get all the columns from the dataframe.
-        columns = df.columns.tolist()
-        # Store the variable well be predicting on.
-        target = "RentalCount"
-        from sklearn.linear_model import LinearRegression
-        # Initialize the model class.
-        lin_model = LinearRegression()
-        # Fit the model to the training data.
-        lin_model.fit(df[columns], df[target])
-        import pickle
-        #Before saving the model to the DB table, we need to convert it to a binary object
-        trained_model = pickle.dumps(lin_model)'
+from sklearn.linear_model import LinearRegression
+import pickle
+
+df = rental_train_data
+
+# Get all the columns from the dataframe.
+columns = df.columns.tolist()
+
+# Store the variable well be predicting on.
+target = "RentalCount"
+
+
+        
+# Initialize the model class.
+lin_model = LinearRegression()
+
+# Fit the model to the training data.
+lin_model.fit(df[columns], df[target])
+
+#Before saving the model to the DB table, we need to convert it to a binary object
+trained_model = pickle.dumps(lin_model)'
+
 , @input_data_1 = N'select "RentalCount", "Year", "Month", "Day", "WeekDay", "Snow", "Holiday" from dbo.rental_data where Year < 2015'
 , @input_data_1_name = N'rental_train_data'
 , @params = N'@trained_model varbinary(max) OUTPUT'
@@ -94,27 +103,34 @@ BEGIN
 	DECLARE @py_model varbinary(max) = (select model from rental_py_models where model_name = @model);
 
 	EXEC sp_execute_external_script 
-					@language = N'Python'
-				  , @script = N'
+				@language = N'Python',
+				@script = N'
+
+# Import the scikit-learn function to compute error.
+from sklearn.metrics import mean_squared_error
 import pickle
+import pandas as pd
+
 rental_model = pickle.loads(py_model)
   
 df = rental_score_data
 
 # Get all the columns from the dataframe.
 columns = df.columns.tolist()
+
 # variable we will be predicting on.
 target = "RentalCount"
+
 # Generate our predictions for the test set.
 lin_predictions = rental_model.predict(df[columns])
 print(lin_predictions)
-# Import the scikit-learn function to compute error.
-from sklearn.metrics import mean_squared_error
+
 # Compute error between our test predictions and the actual values.
 lin_mse = mean_squared_error(linpredictions, df[target])
 #print(lin_mse)
-import pandas as pd
-predictions_df = pd.DataFrame(lin_predictions)  
+
+predictions_df = pd.DataFrame(lin_predictions)
+
 OutputDataSet = pd.concat([predictions_df, df["RentalCount"], df["Month"], df["Day"], df["WeekDay"], df["Snow"], df["Holiday"], df["Year"]], axis=1)
 '
 , @input_data_1 = N'Select "RentalCount", "Year" ,"Month", "Day", "WeekDay", "Snow", "Holiday"  from rental_data where Year = 2015'
