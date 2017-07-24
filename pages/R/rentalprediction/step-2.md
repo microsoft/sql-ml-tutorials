@@ -193,7 +193,7 @@ plot(predict_linmod$RentalCount_Pred - predict_linmod$RentalCount, main = "Diffe
 plot(predict_dtree$RentalCount_Pred - predict_dtree$RentalCount, main = "Difference between actual and predicted. rxDTree");
 ```
 
-![alt text](https://deve2e.azureedge.net/sqlchoice/static/images/RLANG_CompareModels.JPG "Comparing the two models")
+![alt text](https://sqlchoice.blob.core.windows.net/sqlchoice/RLANG_CompareModels.JPG "Comparing the two models")
 
 It looks like the decision tree model is more accurate. We have a quite accurate predictor and we feel confident to use it to predict
 what is going to happen on a given situation in the future. 
