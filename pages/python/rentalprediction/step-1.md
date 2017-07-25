@@ -22,7 +22,7 @@ The act of incorporating predictive analytics into your applications involves tw
 ## Step 1.2 Install SQL Server Management Studio (SSMS)
 Download and install SQL Server Management studio: [SSMS](https://msdn.microsoft.com/en-us/library/mt238290.aspx)
 
->Now you have installed a tool you can use to easily manage your databse objects and scripts.
+>Now you have installed a tool you can use to easily manage your database objects and scripts.
 
 
 ## Step 1.3 Enable external script execution              
