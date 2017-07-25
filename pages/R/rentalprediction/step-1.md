@@ -24,7 +24,7 @@ You can copy code as you follow this tutorial. All code is also available on [Gi
 ## Step 1.2 Install SQL Server Management Studio (SSMS)
 Download and install SQL Server Management studio: [SSMS](https://msdn.microsoft.com/en-us/library/mt238290.aspx)
 
->Now you have installed a tool you can use to easily manage your databse objects and scripts.
+>Now you have installed a tool you can use to easily manage your database objects and scripts.
 
 ## Step 1.3 Enable external script execution              
 Run SSMS and open a new query window. Then execute the script below to enable your instance to run R scripts in SQL Server.
