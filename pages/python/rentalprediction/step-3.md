@@ -126,7 +126,7 @@ lin_predictions = rental_model.predict(df[columns])
 print(lin_predictions)
 
 # Compute error between our test predictions and the actual values.
-lin_mse = mean_squared_error(linpredictions, df[target])
+lin_mse = mean_squared_error(lin_predictions, df[target])
 #print(lin_mse)
 
 predictions_df = pd.DataFrame(lin_predictions)
