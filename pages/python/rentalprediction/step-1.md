@@ -12,7 +12,7 @@ redirect_from:
 >Predictive modeling is a powerful way to add intelligence to your application. It enables applications to predict outcomes against new data.
 The act of incorporating predictive analytics into your applications involves two major phases: **model training** and **model deployment**
 
->In this tutorial, you will learn how to create a predictive model in Python and deploy it with SQL Server 2017 Machine Learning Services, RC1 and above.
+>In this tutorial, you will learn how to create a predictive model in Python and deploy it with SQL Server 2017 Machine Learning Services, **RC1 and above**.
 
 >You can copy code as you follow this tutorial. All code is also available on [github](https://github.com/NelGson/sql-server-samples/tree/master/samples/features/machine-learning-services/python/getting-started/rental-prediction).
 
