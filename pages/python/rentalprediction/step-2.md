@@ -59,9 +59,10 @@ Just don't forget to replace "MYSQLSERVER" with the name of your database instan
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
-from revoscalepy.computecontext.RxInSqlServer import RxInSqlServer
-from revoscalepy.computecontext.RxInSqlServer import RxSqlServerData
-from revoscalepy.etl.RxImport import rx_import_datasource
+
+#If you are running SQL Server 2017 RC1 and above:
+from revoscalepy import RxComputeContext, RxInSqlServer, RxSqlServerData
+from revoscalepy import rx_import
 
 #Connection string to connect to SQL Server named instance
 conn_str = 'Driver=SQL Server;Server=MYSQLSERVER;Database=TutorialDB;Trusted_Connection=True;'
@@ -88,18 +89,18 @@ conn_str = 'Driver=SQL Server;Server=MYSQLSERVER;Database=TutorialDB;Trusted_Con
 
 #Get the data from SQL Server Table
 data_source = RxSqlServerData(table="dbo.rental_data",
-                               connectionString=conn_str, colInfo=column_info)
+                               connection_string=conn_str, column_info=column_info)
 computeContext = RxInSqlServer(
-     connectionString = conn_str,
-     numTasks = 1,
-     autoCleanup = False
+     connection_string = conn_str,
+     num_tasks = 1,
+     auto_cleanup = False
 )
      
     
-RxInSqlServer(connectionString=conn_str, numTasks=1, autoCleanup=False)
+RxInSqlServer(connection_string=conn_str, num_tasks=1, auto_cleanup=False)
 
  # import data source and convert to pandas dataframe
-df = pd.DataFrame(rx_import_datasource(data_source))
+df = pd.DataFrame(rx_import(input_data = data_source))
 print("Data frame:", df)
 # Get all the columns from the dataframe.
 columns = df.columns.tolist()
