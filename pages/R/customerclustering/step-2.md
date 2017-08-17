@@ -251,8 +251,8 @@ Just to refresh our memory, here are the definitions of our variables:
 
 Some examples of what the mean values tell us?
 
-* Well, cluster 1 (the largest cluster) seems to be a group of customers that either don't have any orders placed. All values are zero.
-*And cluster 3 seems to be a group that stands out in terms of return behaviour. It seems to be a group that returns most of orders placed.
+* Well, cluster 1 (the largest cluster) seems to be a group of customers that are not active. All values are zero.
+*And cluster 3 seems to be a group that stands out in terms of return behaviour.
                                   
 Data mining using Kmeans often requires further analysis of the results, and further steps to better understand each cluster, 
 but it provides some very good leads. Cluster 1 is a set of customers who are clearly not active. Perhaps we can target marketing efforts towards this group to trigger an interest for purchases? 
