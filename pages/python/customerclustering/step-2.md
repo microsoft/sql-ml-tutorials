@@ -6,12 +6,12 @@ permalink: /Python/customerclustering/step/2
 ---
 
 
->After getting SQL Server with Machine Learning Services installed and your R IDE configured on your machine, you can now proceed and perform clustering using R.
+>After getting SQL Server 2017 with Machine Learning Services installed and your Python IDE up on your machine, you can now proceed and perform clustering using Python.
 
->R is a programming language that makes statistical and math computation easy, and is very useful for any machine learning/predictive analytics/statistics work. There are lots of tutorials out there on R. This is one example of a [tutorial](https://www.tutorialspoint.com/r/) to learn more about R.
+>Python is a programming language that can be used for machine learning and predictive analytics. 
                 
->In this specific scenario, we have an online store and we want to group customers based on their order and return behaviour. 
-This information will help us target marketing efforts towards certain groups of customers. Before we go into how you can use R to perform this type of customer grouping using clustering in SQL Server 2016, we will look at the scenario in R.
+>In this specific scenario, we have a store and we want to group customers based on their order and return behaviour. 
+This information will help us target marketing efforts towards certain groups of customers. Before we go into how you can use R to perform this type of customer grouping using clustering in SQL Server 2017, we will look at the scenario in Python.
 
 
 ## Step 2.1 Load the sample data 
@@ -52,7 +52,7 @@ SELECT TOP (100) * FROM [dbo].[store_returns];
 
 ## Step 2.2 Access the data from SQL Server using R
 
-Loading data from SQL Server to R is easy. So let's try it out.
+Loading data from SQL Server to Python is easy. So let's try it out.
 
 Open a new Python Script in your Python IDE and run the following script.
 Just don't forget to replace "MYSQLSERVER" with the name of your database instance.
@@ -71,7 +71,7 @@ In the query we are using to select data from SQL Server, we are separating cust
 ##########################################################################################################################################
 
 # Connection string to connect to SQL Server named instance
-conn_str = 'Driver=SQL Server;Server=localhost;Database=tpcxbb_1gb;Trusted_Connection=True;'
+conn_str = 'Driver=SQL Server;Server=MYSQLSERVER;Database=tpcxbb_1gb;Trusted_Connection=True;'
 
 input_query = '''SELECT
 ss_customer_sk AS customer,
@@ -117,7 +117,7 @@ COALESCE(returns_count, 0) AS frequency
 ```
 
 Results from the query are returned to Python using the revoscalepy RxSqlServerData function. 
-This is also where we provide column info, to make sure that the types are correctly transferred to Python.
+This is also where we provide column info, to make sure that the types are correctly transferred.
 
 ```Python
 data_source = RxSqlServerData(sql_query=input_query, column_Info=column_info, connection_string=conn_str)
@@ -137,7 +137,7 @@ Data frame:     customer  orderRatio  itemsRatio  monetaryRatio  frequency
 4     2040.0    0.000000    0.000000       0.000000          0
 ```
 
->You have now read the data from SQL Server to R and explored it.
+>You have now read the data from SQL Server to Python.
 
 ## Step 2.3 Determine number of clusters
 
@@ -159,7 +159,7 @@ This is how the algorithm works:
 
 The number of clusters has to be predefined and the quality of the clusters is heavily dependent on the correctness of the k value specified.
 You could just randomly pick a number of clusters, run Kmeans and iterate your way to a good number. 
-Or we can use Python to evaluate which number of clusters is best for our dataset. Let's determine the number of clusters using Python!             
+Or we can use Python to evaluate which number of clusters is best for our dataset. Let's determine the number of clusters using Python and the Elbow method!             
 
 ```Python
 ##########################################################################################################################################
@@ -189,16 +189,16 @@ plt.title('Elbow for KMeans clustering')
 plt.show()
 ```
 
-![Elbow graph](https://sqlchoice.blob.core.windows.net/sqlchoice/static/images/Python_Elbow_Graph.png )
+![Elbow graph](https://sqlchoice.blob.core.windows.net/sqlchoice/static/images/Python_Elbow_Graph.png)
 Finding the right number of clusters using an elbow graph
                 
-Based on the graph above, it looks like *k = 4* would be a good value to try. That will group our customers into 4 clusters.
+Based on the graph, it looks like *k = 4* would be a good value to try. That will group our customers into 4 clusters.
 
->Now we have derived the number of clusters to use when clustering.
+>Now we have derived the number of clusters to use when clustering!
 
 
 ## Step 2.4 Perform Clustering
-Now it is time to use Kmeans. In this sample, we will be using the KMeans function from the sklearn package.
+It is now time to use Kmeans. In this sample, we will be using the KMeans function from the sklearn package.
 
 ```Python
 ##########################################################################################################################################
@@ -208,18 +208,11 @@ Now it is time to use Kmeans. In this sample, we will be using the KMeans functi
 #It looks like k=4 is a good number to use based on the elbow graph
 n_clusters = 4
 
-#Using PCA to find variation. PCA finds a new coordinate system in which every point has a new (x,y) value.
-#This is useful when plotting clusters
-#pca = PCA(n_components=4).fit_transform(customer_data[["orderRatio", "itemsRatio", "monetaryRatio", "frequency"]])
-
-#est = KMeans(n_clusters=n_clusters, random_state=111).fit(pca)
 est = KMeans(n_clusters=n_clusters, random_state=111).fit(customer_data[["orderRatio", "itemsRatio", "monetaryRatio", "frequency"]])
-#clusters = est.predict(pca)
 clusters = est.labels_
 customer_data['cluster'] = clusters
 
 #Print some data about the clusters:
-
 #For each cluster, count the members
 for c in range(n_clusters):
 	cluster_members=customer_data[customer_data['cluster']== c][:]
@@ -273,6 +266,4 @@ Data mining using Kmeans often requires further analysis of the results, and fur
 but it provides some very good leads. Cluster 0 is a set of customers who are clearly not active. Perhaps we can target marketing efforts towards this group to trigger an interest for purchases? 
 In the next step, we will query the database for the email addresses of customers in cluster 0, so that we can send a marketing email to them.
              
-
-
 > Congrats you just performed clustering with R! Let us now deploy our R code by moving it to SQL Server.
