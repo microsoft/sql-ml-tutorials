@@ -50,7 +50,7 @@ SELECT TOP (100) * FROM [dbo].[store_returns];
 >You now have the database and the data to perform clustering.
 
 
-## Step 2.2 Access the data from SQL Server using R
+## Step 2.2 Access the data from SQL Server using Python
 
 Loading data from SQL Server to Python is easy. So let's try it out.
 
