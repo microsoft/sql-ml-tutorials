@@ -2,7 +2,7 @@
 layout: page-steps
 language: Python
 title: Perform customer clustering 
-permalink: /Python/customerclustering/
+permalink: /python/customerclustering/
 redirect_from:
   - /Python/
   - /Python/customerclustering/step/
