@@ -1,6 +1,6 @@
 ---
 layout: page-steps
-language: python
+language: Python
 title: Perform customer clustering 
 permalink: /python/customerclustering/step/2
 ---
