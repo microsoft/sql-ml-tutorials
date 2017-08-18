@@ -281,4 +281,4 @@ Data mining using Kmeans often requires further analysis of the results, and fur
 but it provides some very good leads. Cluster 0 is a set of customers who are clearly not active. Perhaps we can target marketing efforts towards this group to trigger an interest for purchases? 
 In the next step, we will query the database for the email addresses of customers in cluster 0, so that we can send a marketing email to them.
              
-> Congrats you just performed clustering with R! Let us now deploy our R code by moving it to SQL Server.
+> Congrats you just performed clustering in Python! Let us now deploy our Python code by moving it to SQL Server.
