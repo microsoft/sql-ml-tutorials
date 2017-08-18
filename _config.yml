@@ -26,6 +26,7 @@ menu:
     logo: python.png
     pages:
       Predict ski rentals: python/rentalprediction
+      Perform customer clustering: python/customerclustering
       
   
 resources:

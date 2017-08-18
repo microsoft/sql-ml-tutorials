@@ -1,8 +1,8 @@
 ---
 layout: page-steps
-language: Python
+language: python
 title: Perform customer clustering
-permalink: /Python/customerclustering/step/3
+permalink: /python/customerclustering/step/3
 ---
 
 
