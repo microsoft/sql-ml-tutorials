@@ -74,7 +74,8 @@ EXEC generate_rental_rx_model @model OUTPUT;
 
 INSERT INTO rental_rx_models (model_name, model) VALUES('rxDTree', @model);
 
-SELECT * FROM rental_rx_models;```
+SELECT * FROM rental_rx_models;
+```
 
 The model is now saved in the database as a binary object.
 
@@ -118,7 +119,8 @@ BEGIN
                 WITH RESULT SETS (("RentalCount_Predicted" FLOAT));
    
 END;
-GO```
+GO
+```
 
 1.Execute the stored procedure to predict rental count for new data  
 
