@@ -182,6 +182,10 @@ set.seed(10);
 # Generate clusters using rxKmeans and output key / cluster to a table in SQL Server called return_cluster
 clust <- rxKmeans( ~ orderRatio + itemsRatio + monetaryRatio + frequency, customer_returns, numClusters=4
          , outFile=return_cluster, outColName="cluster" , extraVarsToWrite=c("customer"), overwrite=TRUE);
+
+# Read the customer returns cluster table from the DB
+customer_cluster <- rxDataStep(return_cluster);
+
 ```
 
 >Great, now you have performed clustering in R!
