@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2000px-Microsoft_logo.svg.png">
+
+  <title>
+    
+      Python Perform customer clustering
+    
+  </title>
+  <meta name="description" content="Get Started with SQL Server Machine Learning Services">
+  <link rel="stylesheet" href="/en-us/sql-server/developer-get-started/ml-tutorials/assets/main.css">
+  <link rel="canonical" href="https://sqlchoice.azurewebsites.net/en-us/sql-server/developer-get-started/ml-tutorials/python/customerclustering/step/2">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-62780441-15', 'auto');
+  ga('send', 'pageview');
+  $(document).ready(function() {
+      $("code").bind({
+          copy: function(event) {
+              ga("send", "event", {
+                  eventCategory: window.location.pathname,
+                  eventAction: "copy_code"
+              });
+         console.log("Copy");
+
+          }, 
+
+          cut: function(event) {
+              ga("send", "event", {
+                  eventCategory: window.location.pathname,
+                  eventAction: "copy_code"
+              });
+          }
+      })
+
+      $("a").click(function(event) {
+          ga("send", "event", {
+              eventCategory: window.location.pathname,
+              eventAction: "click_link",
+              eventLabel: event.target.href
+          });
+      })
+  });  
+  </script>
+
+
+
+</head>
+
+
+  <body>
+
+    <header class="sql-header sql-header--empty" role="banner">
+    <div class="sql-header-content">
+      <img class="sql-header-micro" src="/en-us/sql-server/developer-get-started/ml-tutorials/assets/images/micro-logo.png" alt="Microsoft logo">
+      
+        <div class="sql-menutop">
+          <a class="sql-menutop-link" href="/en-us/sql-server/developer-get-started/ml-tutorials/">Get started with Machine Learning in SQL Server</a>
+          <div>
+            
+              
+              
+
+              <div class="sql-menutop-sub ">
+                  
+                    
+                      
+                      
+
+                        
+                          <span class="sql-menutop-link">R </span>
+                        
+
+                        
+                    
+                      
+                      
+
+                        
+
+                        
+                          <div class="sql-menutop-items">
+                            
+                              
+                              
+                              
+
+                              <a class="sql-menutop-item " 
+                                href="/en-us/sql-server/developer-get-started/ml-tutorials/R/rentalprediction" 
+                                target="_self">
+                                Predict ski rentals
+                                
+                              </a>
+                            
+                              
+                              
+                              
+
+                              <a class="sql-menutop-item " 
+                                href="/en-us/sql-server/developer-get-started/ml-tutorials/R/customerclustering" 
+                                target="_self">
+                                Perform customer clustering
+                                
+                              </a>
+                            
+                          </div>
+                        
+                    
+                  
+              </div>
+            
+              
+              
+
+              <div class="sql-menutop-sub  is-active ">
+                  
+                    
+                      
+                      
+
+                        
+                          <span class="sql-menutop-link">Python </span>
+                        
+
+                        
+                    
+                      
+                      
+
+                        
+
+                        
+                          <div class="sql-menutop-items">
+                            
+                              
+                              
+                              
+
+                              <a class="sql-menutop-item " 
+                                href="/en-us/sql-server/developer-get-started/ml-tutorials/python/rentalprediction" 
+                                target="_self">
+                                Predict ski rentals
+                                
+                              </a>
+                            
+                              
+                              
+                              
+
+                              <a class="sql-menutop-item  is-active " 
+                                href="/en-us/sql-server/developer-get-started/ml-tutorials/python/customerclustering" 
+                                target="_self">
+                                Perform customer clustering
+                                
+                                  <i class="sql-new"></i>
+                                
+                              </a>
+                            
+                          </div>
+                        
+                    
+                  
+              </div>
+            
+          </div>
+        </div>
+
+      
+</header>
+
+
+    <main class="sql-main" aria-label="Content">
+      <div class="u-wrapper">
+        <article class="sql-page_steps">
+
+  
+    
+    
+    
+
+    <h1 class="sql-page_steps-hero">
+      Perform customer clustering using Python and SQL Server ML Services
+    </h1>
+
+    <header class="sql-page_steps-steps js-stepsheader">
+      
+        
+        
+
+        <div class="sql-page_steps-step">
+          
+            <a class="sql-page_steps-link "
+               href="/en-us/sql-server/developer-get-started/ml-tutorials/python/customerclustering"
+               target="_self">
+               <span class="sql-page_steps-number">1</span>
+               Set up your environment
+              </a>
+          
+        </div>
+      
+        
+        
+
+        <div class="sql-page_steps-step">
+          
+            <a class="sql-page_steps-link  sql-page_steps-link--active "
+               href="/en-us/sql-server/developer-get-started/ml-tutorials/python/customerclustering/step/2.html"
+               target="_self">
+               <span class="sql-page_steps-number">2</span>
+               Create your ML script using Python
+            </a>
+          
+        </div>
+      
+        
+        
+
+        <div class="sql-page_steps-step">
+          
+            <a class="sql-page_steps-link "
+               href="/en-us/sql-server/developer-get-started/ml-tutorials/python/customerclustering/step/3.html"
+               target="_self">
+               <span class="sql-page_steps-number">3</span>
+               Deploy your ML script with SQL Server
+            </a>
+          
+        </div>
+      
+    </header>
+  
+
+  <div class="sql-page_steps-loading js-loading">
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <div></div>
+    <div></div>
+    <p></p>
+    <div></div>
+    <div></div>
+    <p></p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <p></p>
+    <p></p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <p></p>
+    <div></div>
+    <div></div>
+    <p></p>
+    <p></p>
+    <div></div>
+    <div></div>
+    
+  </div>
+
+  <div class="js-steps is-hidden">
+    <blockquote>
+  <p>After getting SQL Server 2017 with Machine Learning Services installed and your Python IDE up on your machine, you can now proceed and perform clustering using Python.</p>
+</blockquote>
+
+<blockquote>
+  <p>Python is a programming language that can be used for machine learning and predictive analytics.</p>
+</blockquote>
+
+<blockquote>
+  <p>In this specific scenario, we have a store and we want to group customers based on their order and return behaviour. 
+This information will help us target marketing efforts towards certain groups of customers. Before we go into how you can use R to perform this type of customer grouping using clustering in SQL Server 2017, we will look at the scenario in Python.</p>
+</blockquote>
+
+<h2 id="step-21-load-the-sample-data">Step 2.1 Load the sample data</h2>
+
+<p><strong>Restore the sample DB</strong>
+The dataset used in this tutorial is hosted in several SQL Server tables.The tables contain purchasing and return data based on orders.</p>
+
+<ol>
+  <li>
+    <p>Download the backup (.bak) file <a href="https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bak">here</a>, and save it on a location that SQL Server can access.
+For example in the folder where SQL Server is installed.
+Sample path: C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Backup</p>
+  </li>
+  <li>
+    <p>Once you have the file saved, open SSMS and a new query window to run the following commands to restore the DB.
+Make sure to modify the file paths and server name in the script.</p>
+  </li>
+</ol>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">USE</span> <span class="n">master</span><span class="p">;</span>  
+<span class="k">GO</span>  
+<span class="n">RESTORE</span> <span class="k">DATABASE</span> <span class="n">tpcxbb_1gb</span>  
+   <span class="k">FROM</span> <span class="n">DISK</span> <span class="o">=</span> <span class="s1">'C:</span><span class="se">\P</span><span class="s1">rogram Files</span><span class="se">\M</span><span class="s1">icrosoft SQL Server</span><span class="se">\M</span><span class="s1">SSQL13.MSSQLSERVER</span><span class="se">\M</span><span class="s1">SSQL</span><span class="se">\B</span><span class="s1">ackup</span><span class="se">\t</span><span class="s1">pcxbb_1gb.bak'</span>
+   <span class="k">WITH</span> 
+                <span class="k">MOVE</span> <span class="s1">'tpcxbb_1gb'</span> <span class="k">TO</span> <span class="s1">'C:</span><span class="se">\P</span><span class="s1">rogram Files</span><span class="se">\M</span><span class="s1">icrosoft SQL Server</span><span class="se">\M</span><span class="s1">SSQL13.MSSQLSERVER</span><span class="se">\M</span><span class="s1">SSQL</span><span class="se">\D</span><span class="s1">ATA</span><span class="se">\t</span><span class="s1">pcxbb_1gb.mdf'</span>
+                <span class="p">,</span><span class="k">MOVE</span> <span class="s1">'tpcxbb_1gb_log'</span> <span class="k">TO</span> <span class="s1">'C:</span><span class="se">\P</span><span class="s1">rogram Files</span><span class="se">\M</span><span class="s1">icrosoft SQL Server</span><span class="se">\M</span><span class="s1">SSQL13.MSSQLSERVER</span><span class="se">\M</span><span class="s1">SSQL</span><span class="se">\D</span><span class="s1">ATA</span><span class="se">\t</span><span class="s1">pcxbb_1gb.ldf'</span><span class="p">;</span>  
+<span class="k">GO</span>  
+</code></pre>
+</div>
+
+<p>You should now be able to see the database and tables store_sales and store_returns in the Object Explorer in SSMS.
+You can also verify this by querying the tables in SSMS. Open a new query window and select the following.</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">USE</span> <span class="n">tpcxbb_1gb</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">TOP</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">store_sales</span><span class="p">];</span>
+<span class="k">SELECT</span> <span class="n">TOP</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">store_returns</span><span class="p">];</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>You now have the database and the data to perform clustering.</p>
+</blockquote>
+
+<h2 id="step-22-access-the-data-from-sql-server-using-python">Step 2.2 Access the data from SQL Server using Python</h2>
+
+<p>Loading data from SQL Server to Python is easy. So let’s try it out.</p>
+
+<p>Open a new Python Script in your Python IDE and run the following script.
+Just don’t forget to replace “MYSQLSERVER” with the name of your database instance.</p>
+
+<p>In the query we are using to select data from SQL Server, we are separating customers along the following dimensions:</p>
+<ul>
+  <li><em>return frequency</em></li>
+  <li><em>return order ratio (total number of orders partially or fully returned versus the total number of orders)</em></li>
+  <li><em>return item ratio (total number of items returned versus the number of items purchased)</em></li>
+  <li><em>return amount ration (total monetary amount of items returned versus the amount purchased)</em></li>
+</ul>
+
+<pre><code class="language-Python"># Load packages.
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import revoscalepy as revoscale
+from scipy.spatial import distance as sci_distance
+from sklearn import cluster as sk_cluster
+
+
+
+def perform_clustering():
+    ################################################################################################
+
+    ##	Connect to DB and select data
+
+    ################################################################################################
+
+    # Connection string to connect to SQL Server named instance.
+    conn_str = 'Driver=SQL Server;Server=localhost;Database=tpcxbb_1gb;Trusted_Connection=True;'
+
+    input_query = '''SELECT
+    ss_customer_sk AS customer,
+    ROUND(COALESCE(returns_count / NULLIF(1.0*orders_count, 0), 0), 7) AS orderRatio,
+    ROUND(COALESCE(returns_items / NULLIF(1.0*orders_items, 0), 0), 7) AS itemsRatio,
+    ROUND(COALESCE(returns_money / NULLIF(1.0*orders_money, 0), 0), 7) AS monetaryRatio,
+    COALESCE(returns_count, 0) AS frequency
+    FROM
+    (
+      SELECT
+        ss_customer_sk,
+        -- return order ratio
+        COUNT(distinct(ss_ticket_number)) AS orders_count,
+        -- return ss_item_sk ratio
+        COUNT(ss_item_sk) AS orders_items,
+        -- return monetary amount ratio
+        SUM( ss_net_paid ) AS orders_money
+      FROM store_sales s
+      GROUP BY ss_customer_sk
+    ) orders
+    LEFT OUTER JOIN
+    (
+      SELECT
+        sr_customer_sk,
+        -- return order ratio
+        count(distinct(sr_ticket_number)) as returns_count,
+        -- return ss_item_sk ratio
+        COUNT(sr_item_sk) as returns_items,
+        -- return monetary amount ratio
+        SUM( sr_return_amt ) AS returns_money
+    FROM store_returns
+    GROUP BY sr_customer_sk ) returned ON ss_customer_sk=sr_customer_sk'''
+
+
+    # Define the columns we wish to import.
+    column_info = {
+        "customer": {"type": "integer"},
+        "orderRatio": {"type": "integer"},
+        "itemsRatio": {"type": "integer"},
+        "frequency": {"type": "integer"}
+    }
+
+    ```
+
+Results from the query are returned to Python using the revoscalepy RxSqlServerData function. 
+This is also where we provide column info, to make sure that the types are correctly transferred.
+
+```Python
+data_source = revoscale.RxSqlServerData(sql_query=input_query, column_Info=column_info,
+                                              connection_string=conn_str)
+    revoscale.RxInSqlServer(connection_string=conn_str, num_tasks=1, auto_cleanup=False)
+    # import data source and convert to pandas dataframe.
+    customer_data = pd.DataFrame(revoscalepy.rx_import(data_source))
+    print("Data frame:", customer_data.head(n=5))
+</code></pre>
+
+<pre><code class="language-results">Rows Read: 37336, Total Rows Processed: 37336, Total Chunk Time: 0.172 seconds 
+Data frame:     customer  orderRatio  itemsRatio  monetaryRatio  frequency
+0    29727.0    0.000000    0.000000       0.000000          0
+1    97643.0    0.068182    0.078176       0.037034          3
+2    57247.0    0.000000    0.000000       0.000000          0
+3    32549.0    0.086957    0.068657       0.031281          4
+4     2040.0    0.000000    0.000000       0.000000          0
+</code></pre>
+
+<blockquote>
+  <p>You have now read the data from SQL Server to Python.</p>
+</blockquote>
+
+<h2 id="step-23-determine-number-of-clusters">Step 2.3 Determine number of clusters</h2>
+
+<p>Using the clustering algorithm <strong>Kmeans</strong>, is one of the simplest and most well known ways of grouping data.
+Now that we have our selected data, we can group the data into clusters using the iterative data mining algorithm called Kmeans.</p>
+
+<p>The algorithm accepts two inputs: The data itself, and a predefined number “k”, the number of clusters.
+The output is k clusters with input data partitioned among them.</p>
+
+<p>The goal of K-means is to group the items into k clusters such that all items in same cluster are as similar to each other as possible. And items not in same cluster are as different as possible.
+It uses the distance measures to calculate similarity and dissimilarity.</p>
+
+<p>This is how the algorithm works:</p>
+
+<ol>
+  <li>It randomly chooses k points and make them the initial centroids (each cluster has a centroid which basically is the “center” of the cluster)</li>
+  <li>For each point, it finds the nearest centroid and assigns the point to the cluster associated with the nearest centroid</li>
+  <li>Updates the centroid of each cluster based on members in that cluster. Typically, a new centroid will be the average of all members in the cluster</li>
+  <li>Repeats steps 2 and 3, until the clusters are stable</li>
+</ol>
+
+<p>The number of clusters has to be predefined and the quality of the clusters is heavily dependent on the correctness of the k value specified.
+You could just randomly pick a number of clusters, run Kmeans and iterate your way to a good number. 
+Or we can use Python to evaluate which number of clusters is best for our dataset. Let’s determine the number of clusters using Python and the Elbow method!</p>
+
+<pre><code class="language-Python">	################################################################################################
+
+    ##	Determine number of clusters using the Elbow method
+
+    ################################################################################################
+
+    cdata = customer_data
+    K = range(1, 20)
+    KM = (sk_cluster.KMeans(n_clusters=k).fit(cdata) for k in K)
+    centroids = (k.cluster_centers_ for k in KM)
+
+    D_k = (sci_distance.cdist(cdata, cent, 'euclidean') for cent in centroids)
+    dist = (np.min(D, axis=1) for D in D_k)
+    avgWithinSS = [sum(d) / cdata.shape[0] for d in dist]
+    plt.plot(K, avgWithinSS, 'b*-')
+    plt.grid(True)
+    plt.xlabel('Number of clusters')
+    plt.ylabel('Average within-cluster sum of squares')
+    plt.title('Elbow for KMeans clustering')
+    plt.show()
+</code></pre>
+
+<p><img src="https://sqlchoice.blob.core.windows.net/sqlchoice/static/images/Python_Elbow_Graph.png" alt="Elbow graph" />
+Finding the right number of clusters using an elbow graph</p>
+
+<p>Based on the graph, it looks like <em>k = 4</em> would be a good value to try. That will group our customers into 4 clusters.</p>
+
+<blockquote>
+  <p>Now we have derived the number of clusters to use when clustering!</p>
+</blockquote>
+
+<h2 id="step-24-perform-clustering">Step 2.4 Perform Clustering</h2>
+<p>It is now time to use Kmeans. In this sample, we will be using the KMeans function from the sklearn package.</p>
+
+<pre><code class="language-Python">	################################################################################################
+
+    ##	Perform clustering using Kmeans
+
+    ################################################################################################
+
+    # It looks like k=4 is a good number to use based on the elbow graph.
+    n_clusters = 4
+
+    means_cluster = sk_cluster.KMeans(n_clusters=n_clusters, random_state=111)
+    columns = ["orderRatio", "itemsRatio", "monetaryRatio", "frequency"]
+    est = means_cluster.fit(customer_data[columns])
+    clusters = est.labels_
+    customer_data['cluster'] = clusters
+
+    # Print some data about the clusters:
+
+    # For each cluster, count the members.
+    for c in range(n_clusters):
+        cluster_members=customer_data[customer_data['cluster'] == c][:]
+        print('Cluster{}(n={}):'.format(c, len(cluster_members)))
+        print('-'* 17)
+
+    # Print mean values per cluster.
+    print(customer_data.groupby(['cluster']).mean())
+
+
+perform_clustering()
+</code></pre>
+
+<blockquote>
+  <p>Great, now you have performed clustering in Python!</p>
+</blockquote>
+
+<h2 id="step-25-analyze-clusters">Step 2.5 Analyze clusters</h2>
+
+<p>Now that we have done the clustering using Kmeans, we need to analyze the clusters and see if we can learn anything from that. 
+The clustering mean values and the cluster sizes we just printed could tell us something about our data.</p>
+
+<pre><code class="language-results">
+Cluster0(n=31675):
+-------------------
+Cluster1(n=4989):
+-------------------
+Cluster2(n=1):
+-------------------
+Cluster3(n=671):
+-------------------
+
+         customer  orderRatio  itemsRatio  monetaryRatio  frequency
+cluster                                                                
+0        50854.809882    0.000000    0.000000       0.000000   0.000000
+1        51332.535779    0.721604    0.453365       0.307721   1.097815
+2        57044.000000    1.000000    2.000000     108.719154   1.000000
+3        48516.023845    0.136277    0.078346       0.044497   4.271237
+</code></pre>
+
+<p>Focusing on the cluster mean values, it seems like we can actually interpret something. 
+Just to refresh our memory, here are the definitions of our variables:</p>
+
+<ul>
+  <li><em>frequency = return frequency</em></li>
+  <li><em>orderRatio = return order ratio (total number of orders partially or fully returned versus the total number of orders)</em></li>
+  <li><em>itemsRatio = return item ratio (total number of items returned versus the number of items purchased)</em></li>
+  <li><em>monetaryRatio = return amount ratio (total monetary amount of items returned versus the amount purchased)</em></li>
+</ul>
+
+<p>Some examples of what the mean values tell us?</p>
+
+<ul>
+  <li>Well, cluster 0 (the largest cluster) seems to be a group of customers that are very inactive. All values are zero.</li>
+  <li>And cluster 3 seems to be a group that stands out in terms of return behaviour.</li>
+</ul>
+
+<p>Data mining using Kmeans often requires further analysis of the results, and further steps to better understand each cluster, 
+but it provides some very good leads. Cluster 0 is a set of customers who are clearly not active. Perhaps we can target marketing efforts towards this group to trigger an interest for purchases? 
+In the next step, we will query the database for the email addresses of customers in cluster 0, so that we can send a marketing email to them.</p>
+
+<blockquote>
+  <p>Congrats you just performed clustering in Python! Let us now deploy our Python code by moving it to SQL Server.</p>
+</blockquote>
+
+  </div>
+
+   
+    
+    
+      
+
+      
+
+      <a class="sql-page_steps-next"
+        href="/en-us/sql-server/developer-get-started/ml-tutorials/python/customerclustering/step/3.html"
+        target="_self">
+        Go to step 3
+      </a>
+
+    
+  
+
+  <div class="sql-questions">
+    <h2 class="sql-questions-title">
+        Have Questions?
+    </h2>
+    <p class="sql-questions-text">
+        Happy to help! You can find us on <a href="https://github.com/Microsoft/sql-server-samples/tree/master/samples/tutorials" target="_blank">GitHub</a>, <a href="https://social.msdn.microsoft.com/Forums/en-US/home target="_blank"">MSDN Forums</a>, and StackOverflow. We also monitor the <a href="https://twitter.com/search?q=%23SQLServerDev&amp;src=typd" target="_blank">#SQLServerDev</a> hashtag on Twitter.
+    </p>
+</div>
+
+  
+      <footer class="sql-disqus">
+        
+
+      </footer>
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="sql-footer">
+  
+
+
+
+
+    <div class="sql-footer-copy">
+        <a class="sql-footer-link" href="https://go.microsoft.com/?linkid=2028325">Contact us</a> | 
+        <a class="sql-footer-link" href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy & cookies</a> | 
+        <a class="sql-footer-link" href="https://go.microsoft.com/fwlink/?LinkID=206977">Terms of use</a> | 
+        <a class="sql-footer-link" href="https://www.microsoft.com/trademarks">Trademarks</a> | 
+        <a class="sql-footer-link" href="https://choice.microsoft.com/">About our ads</a> | 
+        © 2017 Microsoft 
+      <!--
+        <a href="#" target="_blank" class="sql-footer-icon fa fa-twitter" aria-hidden="true" style="float:right;"></a>
+        <a href="#" target="_blank" class="sql-footer-icon fa fa-github" aria-hidden="true" style="float:right;"></a>
+      -->
+    </div>
+
+           
+</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js" type="text/javascript"></script>
+<script src="https://use.fontawesome.com/c7b2a63f93.js"></script>
+<script src="/en-us/sql-server/developer-get-started/ml-tutorials/assets/scripts/prism.js" type="text/javascript"></script>
+<script src="/en-us/sql-server/developer-get-started/ml-tutorials/assets/scripts/steps.js" type="text/javascript"></script>
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'Microsoft/mssql-developers'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+  </body>
+
+</html>

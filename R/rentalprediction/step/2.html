@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2000px-Microsoft_logo.svg.png">
+
+  <title>
+    
+      R Build a predictive model
+    
+  </title>
+  <meta name="description" content="Get Started with SQL Server Machine Learning Services">
+  <link rel="stylesheet" href="/en-us/sql-server/developer-get-started/ml-tutorials/assets/main.css">
+  <link rel="canonical" href="https://sqlchoice.azurewebsites.net/en-us/sql-server/developer-get-started/ml-tutorials/R/rentalprediction/step/2">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-62780441-15', 'auto');
+  ga('send', 'pageview');
+  $(document).ready(function() {
+      $("code").bind({
+          copy: function(event) {
+              ga("send", "event", {
+                  eventCategory: window.location.pathname,
+                  eventAction: "copy_code"
+              });
+         console.log("Copy");
+
+          }, 
+
+          cut: function(event) {
+              ga("send", "event", {
+                  eventCategory: window.location.pathname,
+                  eventAction: "copy_code"
+              });
+          }
+      })
+
+      $("a").click(function(event) {
+          ga("send", "event", {
+              eventCategory: window.location.pathname,
+              eventAction: "click_link",
+              eventLabel: event.target.href
+          });
+      })
+  });  
+  </script>
+
+
+
+</head>
+
+
+  <body>
+
+    <header class="sql-header sql-header--empty" role="banner">
+    <div class="sql-header-content">
+      <img class="sql-header-micro" src="/en-us/sql-server/developer-get-started/ml-tutorials/assets/images/micro-logo.png" alt="Microsoft logo">
+      
+        <div class="sql-menutop">
+          <a class="sql-menutop-link" href="/en-us/sql-server/developer-get-started/ml-tutorials/">Get started with Machine Learning in SQL Server</a>
+          <div>
+            
+              
+              
+
+              <div class="sql-menutop-sub  is-active ">
+                  
+                    
+                      
+                      
+
+                        
+                          <span class="sql-menutop-link">R </span>
+                        
+
+                        
+                    
+                      
+                      
+
+                        
+
+                        
+                          <div class="sql-menutop-items">
+                            
+                              
+                              
+                              
+
+                              <a class="sql-menutop-item " 
+                                href="/en-us/sql-server/developer-get-started/ml-tutorials/R/rentalprediction" 
+                                target="_self">
+                                Predict ski rentals
+                                
+                              </a>
+                            
+                              
+                              
+                              
+
+                              <a class="sql-menutop-item " 
+                                href="/en-us/sql-server/developer-get-started/ml-tutorials/R/customerclustering" 
+                                target="_self">
+                                Perform customer clustering
+                                
+                              </a>
+                            
+                          </div>
+                        
+                    
+                  
+              </div>
+            
+              
+              
+
+              <div class="sql-menutop-sub ">
+                  
+                    
+                      
+                      
+
+                        
+                          <span class="sql-menutop-link">Python </span>
+                        
+
+                        
+                    
+                      
+                      
+
+                        
+
+                        
+                          <div class="sql-menutop-items">
+                            
+                              
+                              
+                              
+
+                              <a class="sql-menutop-item " 
+                                href="/en-us/sql-server/developer-get-started/ml-tutorials/python/rentalprediction" 
+                                target="_self">
+                                Predict ski rentals
+                                
+                              </a>
+                            
+                              
+                              
+                              
+
+                              <a class="sql-menutop-item " 
+                                href="/en-us/sql-server/developer-get-started/ml-tutorials/python/customerclustering" 
+                                target="_self">
+                                Perform customer clustering
+                                
+                                  <i class="sql-new"></i>
+                                
+                              </a>
+                            
+                          </div>
+                        
+                    
+                  
+              </div>
+            
+          </div>
+        </div>
+
+      
+</header>
+
+
+    <main class="sql-main" aria-label="Content">
+      <div class="u-wrapper">
+        <article class="sql-page_steps">
+
+  
+    
+    
+    
+
+    <h1 class="sql-page_steps-hero">
+      Build a predictive model using R and SQL Server ML Services
+    </h1>
+
+    <header class="sql-page_steps-steps js-stepsheader">
+      
+        
+        
+
+        <div class="sql-page_steps-step">
+          
+            <a class="sql-page_steps-link "
+               href="/en-us/sql-server/developer-get-started/ml-tutorials/R/rentalprediction"
+               target="_self">
+               <span class="sql-page_steps-number">1</span>
+               Set up your environment
+              </a>
+          
+        </div>
+      
+        
+        
+
+        <div class="sql-page_steps-step">
+          
+            <a class="sql-page_steps-link  sql-page_steps-link--active "
+               href="/en-us/sql-server/developer-get-started/ml-tutorials/R/rentalprediction/step/2.html"
+               target="_self">
+               <span class="sql-page_steps-number">2</span>
+               Create your ML script using R
+            </a>
+          
+        </div>
+      
+        
+        
+
+        <div class="sql-page_steps-step">
+          
+            <a class="sql-page_steps-link "
+               href="/en-us/sql-server/developer-get-started/ml-tutorials/R/rentalprediction/step/3.html"
+               target="_self">
+               <span class="sql-page_steps-number">3</span>
+               Deploy your ML script with SQL Server
+            </a>
+          
+        </div>
+      
+    </header>
+  
+
+  <div class="sql-page_steps-loading js-loading">
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <div></div>
+    <div></div>
+    <p></p>
+    <div></div>
+    <div></div>
+    <p></p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <p></p>
+    <p></p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <p></p>
+    <div></div>
+    <div></div>
+    <p></p>
+    <p></p>
+    <div></div>
+    <div></div>
+    
+  </div>
+
+  <div class="js-steps is-hidden">
+    <blockquote>
+  <p>After getting SQL Server with ML Services installed and your R IDE configured on your machine, you can now proceed to <strong>train</strong> a predictive model with R.
+R is a programming language that makes statistical and math computation easy, and is very useful for any machine learning/predictive analytics/statistics work.
+There are lots of tutorials out there on R. This is one example of a <a href="https://www.tutorialspoint.com/r/">tutorial</a> to learn more about R.</p>
+</blockquote>
+
+<blockquote>
+  <p>In this specific scenario, we own a ski rental business, and we want to predict the number of rentals that
+we will have on a future date. This information will help us to get ready from a stock, staff and facilities perspective.</p>
+</blockquote>
+
+<blockquote>
+  <p>During <strong>model training</strong>, you create and train a predictive model by showing it sample data along with the outcomes. Then you save this model so that you can use it later when you want to make predictions against new data.</p>
+</blockquote>
+
+<h2 id="step-21-restore-the-sample-db">Step 2.1 Restore the sample DB</h2>
+
+<p>The dataset used in this tutorial is hosted in a SQL Server table.The table contains rental data from previous years.
+1.Download the backup (.bak) file <a href="https://sqlchoice.blob.core.windows.net/sqlchoice/TutorialDB.bak">here</a>, and save it on a location that SQL Server can access.
+For example in the folder where SQL Server is installed.
+Sample path: C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Backup</p>
+
+<p>2.Once you have the file saved, open SSMS and a new query window to run the following commands to restore the DB.
+Make sure to modify the file paths and server name in the script.</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">USE</span> <span class="n">master</span><span class="p">;</span>  
+<span class="k">GO</span>  
+<span class="n">RESTORE</span> <span class="k">DATABASE</span> <span class="n">TutorialDB</span>  
+   <span class="k">FROM</span> <span class="n">DISK</span> <span class="o">=</span> <span class="s1">'C:</span><span class="se">\P</span><span class="s1">rogram Files</span><span class="se">\M</span><span class="s1">icrosoft SQL Server</span><span class="se">\M</span><span class="s1">SSQL13.MSSQLSERVER</span><span class="se">\M</span><span class="s1">SSQL</span><span class="se">\B</span><span class="s1">ackup</span><span class="se">\T</span><span class="s1">utorialDB.bak'</span>
+   <span class="k">WITH</span> 
+                <span class="k">MOVE</span> <span class="s1">'TutorialDB'</span> <span class="k">TO</span> <span class="s1">'C:</span><span class="se">\P</span><span class="s1">rogram Files</span><span class="se">\M</span><span class="s1">icrosoft SQL Server</span><span class="se">\M</span><span class="s1">SSQL13.MSSQLSERVER</span><span class="se">\M</span><span class="s1">SSQL</span><span class="se">\D</span><span class="s1">ATA</span><span class="se">\T</span><span class="s1">utorialDB.mdf'</span>
+                <span class="p">,</span><span class="k">MOVE</span> <span class="s1">'TutorialDB_log'</span> <span class="k">TO</span> <span class="s1">'C:</span><span class="se">\P</span><span class="s1">rogram Files</span><span class="se">\M</span><span class="s1">icrosoft SQL Server</span><span class="se">\M</span><span class="s1">SSQL13.MSSQLSERVER</span><span class="se">\M</span><span class="s1">SSQL</span><span class="se">\D</span><span class="s1">ATA</span><span class="se">\T</span><span class="s1">utorialDB.ldf'</span><span class="p">;</span>  
+<span class="k">GO</span>  
+</code></pre>
+</div>
+
+<p>A table named rental_data containing the dataset should exist in the restored SQL Server database.
+You can verify this by querying the table in SSMS.</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">USE</span> <span class="n">tutorialdb</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">rental_data</span><span class="p">];</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>You now have the database and the data to use for training the model.</p>
+</blockquote>
+
+<h2 id="step-22-access-the-data-from-sql-server-using-r">Step 2.2 Access the data from SQL Server using R</h2>
+
+<p>Loading data from SQL Server to R is easy. So let’s try it out.
+Open a new RScript in your R development tool and run the following script.
+Just don’t forget to replace “MYSQLSERVER” with the name of your database instance.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#Connection string to connect to SQL Server named instance
+</span><span class="n">connStr</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">paste</span><span class="p">(</span><span class="s2">"Driver=SQL Server; Server="</span><span class="p">,</span><span class="w"> </span><span class="s2">"MYSQLSERVER"</span><span class="p">,</span><span class="w"> 
+                </span><span class="s2">";Database="</span><span class="p">,</span><span class="w"> </span><span class="s2">"Tutorialdb"</span><span class="p">,</span><span class="w"> </span><span class="s2">";Trusted_Connection=true;"</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">""</span><span class="p">);</span><span class="w">
+
+</span><span class="c1">#Get the data from SQL Server Table
+</span><span class="n">SQL_rentaldata</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">RxSqlServerData</span><span class="p">(</span><span class="n">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"dbo.rental_data"</span><span class="p">,</span><span class="w">
+                              </span><span class="n">connectionString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connStr</span><span class="p">,</span><span class="w"> </span><span class="n">returnDataFrame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">);</span><span class="w">
+
+</span><span class="c1">#Import the data into a data frame
+</span><span class="n">rentaldata</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rxImport</span><span class="p">(</span><span class="n">SQL_rentaldata</span><span class="p">);</span><span class="w">
+
+</span><span class="c1">#Let's see the structure of the data and the top rows
+# Ski rental data, giving the number of ski rentals on a given date
+</span><span class="n">head</span><span class="p">(</span><span class="n">rentaldata</span><span class="p">);</span><span class="w">
+</span><span class="n">str</span><span class="p">(</span><span class="n">rentaldata</span><span class="p">);</span><span class="w">
+</span></code></pre>
+</div>
+
+<pre><code class="language-results">Year Month Day RentalCount WeekDay Holiday Snow
+1 2014     1  20         445       2       1    0
+2 2014     2  13          40       5       0    0
+3 2013     3  10         456       1       0    0
+4 2014     3  31          38       2       0    0
+5 2014     4  24          23       5       0    0
+6 2015     2  11          42       4       0    0
+'data.frame':       453 obs. of  7 variables:
+$ Year       : int  2014 2014 2013 2014 2014 2015 2013 2014 2013 2015 ...
+$ Month      : num  1 2 3 3 4 2 4 3 4 3 ...
+$ Day        : num  20 13 10 31 24 11 28 8 5 29 ...
+$ RentalCount: num  445 40 456 38 23 42 310 240 22 360 ...
+$ WeekDay    : num  2 5 1 2 5 4 1 7 6 1 ...
+$ Holiday    : int  1 0 0 0 0 0 0 0 0 0 ...
+$ Snow       : num  0 0 0 0 0 0 0 0 0 0 ...
+</code></pre>
+<blockquote>
+  <p>You have now read the data from SQL Server to R and explored it.</p>
+</blockquote>
+
+<h2 id="step-23-prepare-the-data">Step 2.3 Prepare the data</h2>
+
+<p>Often times, the data needs to be prepared and cleaned before we start calling the functions. In this tutorial, most of the preparations have already been done.
+We are just going to change the type of 3 columns to factors.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#Changing the three factor columns to factor types
+#This helps when building the model because we are explicitly saying that these values are categorical
+</span><span class="n">rentaldata</span><span class="o">$</span><span class="n">Holiday</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">rentaldata</span><span class="o">$</span><span class="n">Holiday</span><span class="p">);</span><span class="w">
+</span><span class="n">rentaldata</span><span class="o">$</span><span class="n">Snow</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">rentaldata</span><span class="o">$</span><span class="n">Snow</span><span class="p">);</span><span class="w">
+</span><span class="n">rentaldata</span><span class="o">$</span><span class="n">WeekDay</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">rentaldata</span><span class="o">$</span><span class="n">WeekDay</span><span class="p">);</span><span class="w">
+
+</span><span class="c1">#Visualize the dataset after the change
+</span><span class="n">str</span><span class="p">(</span><span class="n">rentaldata</span><span class="p">);</span><span class="w">
+</span></code></pre>
+</div>
+
+<pre><code class="language-results">data.frame':      453 obs. of  7 variables:
+$ Year       : int  2014 2014 2013 2014 2014 2015 2013 2014 2013 2015 ...
+$ Month      : num  1 2 3 3 4 2 4 3 4 3 ...
+$ Day        : num  20 13 10 31 24 11 28 8 5 29 ...
+$ RentalCount: num  445 40 456 38 23 42 310 240 22 360 ...
+$ WeekDay    : Factor w/ 7 levels "1","2","3","4",..: 2 5 1 2 5 4 1 7 6 1 ...
+$ Holiday    : Factor w/ 2 levels "0","1": 2 1 1 1 1 1 1 1 1 1 ...
+$ Snow       : Factor w/ 2 levels "0","1": 1 1 1 1 1 1 1 1 1 1 ...
+</code></pre>
+<blockquote>
+  <p>The data is now prepared for training.</p>
+</blockquote>
+
+<h2 id="step-24-train-a-model">Step 2.4 Train a model</h2>
+<p>In order to predict, we have to first find a function (model) that best describes the dependency between the variables in our dataset. This step is called training the model. The training dataset will be a subset of the entire dataset.
+We are going to create two different models and see which one is predicting more accurately.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#Now let's split the dataset into 2 different sets
+#One set for training the model and the other for validating it
+</span><span class="n">train_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rentaldata</span><span class="p">[</span><span class="n">rentaldata</span><span class="o">$</span><span class="n">Year</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">2015</span><span class="p">,];</span><span class="w">
+</span><span class="n">test_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rentaldata</span><span class="p">[</span><span class="n">rentaldata</span><span class="o">$</span><span class="n">Year</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2015</span><span class="p">,];</span><span class="w">
+
+</span><span class="c1">#Use this column to check the quality of the prediction against actual values
+</span><span class="n">actual_counts</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">test_data</span><span class="o">$</span><span class="n">RentalCount</span><span class="p">;</span><span class="w">
+
+</span><span class="c1">#Model 1: Use rxLinMod to create a linear regression model. We are training the data using the training data set
+</span><span class="n">model_linmod</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rxLinMod</span><span class="p">(</span><span class="n">RentalCount</span><span class="w"> </span><span class="o">~</span><span class="w">  </span><span class="n">Month</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Day</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">WeekDay</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Snow</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Holiday</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">train_data</span><span class="p">);</span><span class="w">
+
+</span><span class="c1">#Model 2: Use rxDTree to create a decision tree model. We are training the data using the training data set
+</span><span class="n">model_dtree</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rxDTree</span><span class="p">(</span><span class="n">RentalCount</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Month</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Day</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">WeekDay</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Snow</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Holiday</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">train_data</span><span class="p">);</span><span class="w">
+</span></code></pre>
+</div>
+<blockquote>
+  <p>Now we have trained and created two different models! Let’s use them to predict and see which model is the most accurate.</p>
+</blockquote>
+
+<h2 id="step-25-prediction">Step 2.5 prediction</h2>
+<p>We are now going to use a predict function to predict the Rental Counts using our two models. Finding the right type of model for a specific problem requires some experimentation. 
+This <a href="https://azure.microsoft.com/en-us/documentation/articles/machine-learning-algorithm-choice/#the-machine-learning-algorithm-cheat-sheet">cheat sheet</a> can be nice to have as a guide.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#Use the models we just created to predict using the test data set.
+#That enables us to compare actual values of RentalCount from the two models and compare to the actual values in the test data set
+</span><span class="n">predict_linmod</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rxPredict</span><span class="p">(</span><span class="n">model_linmod</span><span class="p">,</span><span class="w"> </span><span class="n">test_data</span><span class="p">,</span><span class="w"> </span><span class="n">writeModelVars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">extraVarsToWrite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"Year"</span><span class="p">));</span><span class="w">
+
+</span><span class="n">predict_dtree</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rxPredict</span><span class="p">(</span><span class="n">model_dtree</span><span class="p">,</span><span class="w"> </span><span class="n">test_data</span><span class="p">,</span><span class="w"> </span><span class="n">writeModelVars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">extraVarsToWrite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"Year"</span><span class="p">));</span><span class="w">
+
+</span><span class="c1">#Look at the top rows of the two prediction data sets.
+</span><span class="n">head</span><span class="p">(</span><span class="n">predict_linmod</span><span class="p">);</span><span class="w">
+</span><span class="n">head</span><span class="p">(</span><span class="n">predict_dtree</span><span class="p">);</span><span class="w">
+</span></code></pre>
+</div>
+
+<pre><code class="language-results">RentalCount_Pred RentalCount Month Day WeekDay Snow Holiday
+1         27.45858          42     2  11       4    0       0
+2        387.29344         360     3  29       1    0       0
+3         16.37349          20     4  22       4    0       0
+4         31.07058          42     3   6       6    0       0
+5        463.97263         405     2  28       7    1       0
+6        102.21695          38     1  12       2    1       0
+  RentalCount_Pred RentalCount Month Day WeekDay Snow Holiday
+1          40.0000          42     2  11       4    0       0
+2         332.5714         360     3  29       1    0       0
+3          27.7500          20     4  22       4    0       0
+4          34.2500          42     3   6       6    0       0
+5         645.7059         405     2  28       7    1       0
+6          40.0000          38     1  12       2    1       0
+</code></pre>
+
+<blockquote>
+  <p>Congrats you just created two models with R!</p>
+</blockquote>
+
+<h2 id="step-26-compare-results">Step 2.6 Compare results</h2>
+
+<p>Now let’s see which of the models gives the best predictions. To be able to find out, we are going to plot the difference between the predicted and actual values.
+R is a great language for quickly and easily visualizing data. We are going to use a basic plotting function to plot 2 graphs.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#Now we will use the plotting functionality in R to viusalize the results from the predictions
+#We are plotting the difference between actual and predicted values for both models to compare accuracy
+</span><span class="n">par</span><span class="p">(</span><span class="n">mfrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">));</span><span class="w">
+</span><span class="n">plot</span><span class="p">(</span><span class="n">predict_linmod</span><span class="o">$</span><span class="n">RentalCount_Pred</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">predict_linmod</span><span class="o">$</span><span class="n">RentalCount</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Difference between actual and predicted. rxLinmod"</span><span class="p">);</span><span class="w">
+</span><span class="n">plot</span><span class="p">(</span><span class="n">predict_dtree</span><span class="o">$</span><span class="n">RentalCount_Pred</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">predict_dtree</span><span class="o">$</span><span class="n">RentalCount</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Difference between actual and predicted. rxDTree"</span><span class="p">);</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="https://sqlchoice.blob.core.windows.net/sqlchoice/RLANG_CompareModels.JPG" alt="alt text" title="Comparing the two models" /></p>
+
+<p>It looks like the decision tree model is more accurate. We have a quite accurate predictor and we feel confident to use it to predict
+what is going to happen on a given situation in the future.</p>
+
+<blockquote>
+  <p>Congrats, you have decided on which model to use! Let us now deploy our R code by moving it to SQL Server.</p>
+</blockquote>
+
+  </div>
+
+   
+    
+    
+      
+
+      
+
+      <a class="sql-page_steps-next"
+        href="/en-us/sql-server/developer-get-started/ml-tutorials/R/rentalprediction/step/3.html"
+        target="_self">
+        Go to step 3
+      </a>
+
+    
+  
+
+  <div class="sql-questions">
+    <h2 class="sql-questions-title">
+        Have Questions?
+    </h2>
+    <p class="sql-questions-text">
+        Happy to help! You can find us on <a href="https://github.com/Microsoft/sql-server-samples/tree/master/samples/tutorials" target="_blank">GitHub</a>, <a href="https://social.msdn.microsoft.com/Forums/en-US/home target="_blank"">MSDN Forums</a>, and StackOverflow. We also monitor the <a href="https://twitter.com/search?q=%23SQLServerDev&amp;src=typd" target="_blank">#SQLServerDev</a> hashtag on Twitter.
+    </p>
+</div>
+
+  
+      <footer class="sql-disqus">
+        
+
+      </footer>
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="sql-footer">
+  
+
+
+
+
+    <div class="sql-footer-copy">
+        <a class="sql-footer-link" href="https://go.microsoft.com/?linkid=2028325">Contact us</a> | 
+        <a class="sql-footer-link" href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy & cookies</a> | 
+        <a class="sql-footer-link" href="https://go.microsoft.com/fwlink/?LinkID=206977">Terms of use</a> | 
+        <a class="sql-footer-link" href="https://www.microsoft.com/trademarks">Trademarks</a> | 
+        <a class="sql-footer-link" href="https://choice.microsoft.com/">About our ads</a> | 
+        © 2017 Microsoft 
+      <!--
+        <a href="#" target="_blank" class="sql-footer-icon fa fa-twitter" aria-hidden="true" style="float:right;"></a>
+        <a href="#" target="_blank" class="sql-footer-icon fa fa-github" aria-hidden="true" style="float:right;"></a>
+      -->
+    </div>
+
+           
+</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js" type="text/javascript"></script>
+<script src="https://use.fontawesome.com/c7b2a63f93.js"></script>
+<script src="/en-us/sql-server/developer-get-started/ml-tutorials/assets/scripts/prism.js" type="text/javascript"></script>
+<script src="/en-us/sql-server/developer-get-started/ml-tutorials/assets/scripts/steps.js" type="text/javascript"></script>
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'Microsoft/mssql-developers'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+  </body>
+
+</html>

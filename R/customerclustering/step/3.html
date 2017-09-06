@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2000px-Microsoft_logo.svg.png">
+
+  <title>
+    
+      R Perform customer clustering
+    
+  </title>
+  <meta name="description" content="Get Started with SQL Server Machine Learning Services">
+  <link rel="stylesheet" href="/en-us/sql-server/developer-get-started/ml-tutorials/assets/main.css">
+  <link rel="canonical" href="https://sqlchoice.azurewebsites.net/en-us/sql-server/developer-get-started/ml-tutorials/R/customerclustering/step/3">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-62780441-15', 'auto');
+  ga('send', 'pageview');
+  $(document).ready(function() {
+      $("code").bind({
+          copy: function(event) {
+              ga("send", "event", {
+                  eventCategory: window.location.pathname,
+                  eventAction: "copy_code"
+              });
+         console.log("Copy");
+
+          }, 
+
+          cut: function(event) {
+              ga("send", "event", {
+                  eventCategory: window.location.pathname,
+                  eventAction: "copy_code"
+              });
+          }
+      })
+
+      $("a").click(function(event) {
+          ga("send", "event", {
+              eventCategory: window.location.pathname,
+              eventAction: "click_link",
+              eventLabel: event.target.href
+          });
+      })
+  });  
+  </script>
+
+
+
+</head>
+
+
+  <body>
+
+    <header class="sql-header sql-header--empty" role="banner">
+    <div class="sql-header-content">
+      <img class="sql-header-micro" src="/en-us/sql-server/developer-get-started/ml-tutorials/assets/images/micro-logo.png" alt="Microsoft logo">
+      
+        <div class="sql-menutop">
+          <a class="sql-menutop-link" href="/en-us/sql-server/developer-get-started/ml-tutorials/">Get started with Machine Learning in SQL Server</a>
+          <div>
+            
+              
+              
+
+              <div class="sql-menutop-sub  is-active ">
+                  
+                    
+                      
+                      
+
+                        
+                          <span class="sql-menutop-link">R </span>
+                        
+
+                        
+                    
+                      
+                      
+
+                        
+
+                        
+                          <div class="sql-menutop-items">
+                            
+                              
+                              
+                              
+
+                              <a class="sql-menutop-item " 
+                                href="/en-us/sql-server/developer-get-started/ml-tutorials/R/rentalprediction" 
+                                target="_self">
+                                Predict ski rentals
+                                
+                              </a>
+                            
+                              
+                              
+                              
+
+                              <a class="sql-menutop-item  is-active " 
+                                href="/en-us/sql-server/developer-get-started/ml-tutorials/R/customerclustering" 
+                                target="_self">
+                                Perform customer clustering
+                                
+                              </a>
+                            
+                          </div>
+                        
+                    
+                  
+              </div>
+            
+              
+              
+
+              <div class="sql-menutop-sub ">
+                  
+                    
+                      
+                      
+
+                        
+                          <span class="sql-menutop-link">Python </span>
+                        
+
+                        
+                    
+                      
+                      
+
+                        
+
+                        
+                          <div class="sql-menutop-items">
+                            
+                              
+                              
+                              
+
+                              <a class="sql-menutop-item " 
+                                href="/en-us/sql-server/developer-get-started/ml-tutorials/python/rentalprediction" 
+                                target="_self">
+                                Predict ski rentals
+                                
+                              </a>
+                            
+                              
+                              
+                              
+
+                              <a class="sql-menutop-item " 
+                                href="/en-us/sql-server/developer-get-started/ml-tutorials/python/customerclustering" 
+                                target="_self">
+                                Perform customer clustering
+                                
+                                  <i class="sql-new"></i>
+                                
+                              </a>
+                            
+                          </div>
+                        
+                    
+                  
+              </div>
+            
+          </div>
+        </div>
+
+      
+</header>
+
+
+    <main class="sql-main" aria-label="Content">
+      <div class="u-wrapper">
+        <article class="sql-page_steps">
+
+  
+    
+    
+    
+
+    <h1 class="sql-page_steps-hero">
+      Perform customer clustering using R and SQL Server ML Services
+    </h1>
+
+    <header class="sql-page_steps-steps js-stepsheader">
+      
+        
+        
+
+        <div class="sql-page_steps-step">
+          
+            <a class="sql-page_steps-link "
+               href="/en-us/sql-server/developer-get-started/ml-tutorials/R/customerclustering"
+               target="_self">
+               <span class="sql-page_steps-number">1</span>
+               Set up your environment
+              </a>
+          
+        </div>
+      
+        
+        
+
+        <div class="sql-page_steps-step">
+          
+            <a class="sql-page_steps-link "
+               href="/en-us/sql-server/developer-get-started/ml-tutorials/R/customerclustering/step/2.html"
+               target="_self">
+               <span class="sql-page_steps-number">2</span>
+               Create your ML script using R
+            </a>
+          
+        </div>
+      
+        
+        
+
+        <div class="sql-page_steps-step">
+          
+            <a class="sql-page_steps-link  sql-page_steps-link--active "
+               href="/en-us/sql-server/developer-get-started/ml-tutorials/R/customerclustering/step/3.html"
+               target="_self">
+               <span class="sql-page_steps-number">3</span>
+               Deploy your ML script with SQL Server
+            </a>
+          
+        </div>
+      
+    </header>
+  
+
+  <div class="sql-page_steps-loading js-loading">
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <div></div>
+    <div></div>
+    <p></p>
+    <div></div>
+    <div></div>
+    <p></p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <p></p>
+    <p></p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <p></p>
+    <div></div>
+    <div></div>
+    <p></p>
+    <p></p>
+    <div></div>
+    <div></div>
+    
+  </div>
+
+  <div class="js-steps is-hidden">
+    <blockquote>
+  <p>In this section, we will move the R code we just wrote into SQL Server and deploy our clustering with the help of SQL Server Machine Learning Services.</p>
+</blockquote>
+
+<blockquote>
+  <p>In order to perform clustering on a regular basis, as new customers are registering, we need to be able call our R script from any App. 
+To do that, we can simply delploy the R Script in SQL Server. You basically put the R script inside a SQL stored procedure in the database. A stored procedure is like a function, that takes parameters and can return results, and the good thing with these procedures is that they can be called from any application.</p>
+</blockquote>
+
+<h2 id="step-31-create-a-stored-procedure-for-clustering">Step 3.1 Create a stored procedure for clustering</h2>
+
+<p>In SSMS, launch a new query window and run the following T-SQL script to create the stored procedure:</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">USE</span> <span class="p">[</span><span class="n">tpcxbb_1gb</span><span class="p">]</span>
+<span class="k">DROP</span> <span class="n">PROC</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">generate_customer_return_clusters</span><span class="p">;</span>
+<span class="k">GO</span>
+<span class="k">CREATE</span> <span class="k">procedure</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">generate_customer_return_clusters</span><span class="p">]</span>
+<span class="k">AS</span>
+<span class="cm">/* 
+  This procedure uses R to classify customers into different groups based on their
+  purchase &amp; return history.
+*/</span>
+<span class="k">BEGIN</span>
+	<span class="k">DECLARE</span> <span class="o">@</span><span class="n">duration</span> <span class="n">FLOAT</span>
+	<span class="p">,</span> <span class="o">@</span><span class="n">instance_name</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">=</span> <span class="o">@@</span><span class="n">SERVERNAME</span>
+	<span class="p">,</span> <span class="o">@</span><span class="n">database_name</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="o">=</span> <span class="n">db_name</span><span class="p">()</span>
+<span class="c1">-- Input query to generate the purchase history &amp; return metrics</span>
+	<span class="p">,</span> <span class="o">@</span><span class="n">input_query</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span> <span class="o">=</span> <span class="n">N</span><span class="s1">'
+SELECT
+  ss_customer_sk AS customer,
+  round(CASE WHEN ((orders_count = 0) OR (returns_count IS NULL) OR (orders_count IS NULL) OR ((returns_count / orders_count) IS NULL) ) THEN 0.0 ELSE (cast(returns_count as nchar(10)) / orders_count) END, 7) AS orderRatio,
+  round(CASE WHEN ((orders_items = 0) OR(returns_items IS NULL) OR (orders_items IS NULL) OR ((returns_items / orders_items) IS NULL) ) THEN 0.0 ELSE (cast(returns_items as nchar(10)) / orders_items) END, 7) AS itemsRatio,
+  round(CASE WHEN ((orders_money = 0) OR (returns_money IS NULL) OR (orders_money IS NULL) OR ((returns_money / orders_money) IS NULL) ) THEN 0.0 ELSE (cast(returns_money as nchar(10)) / orders_money) END, 7) AS monetaryRatio,
+  round(CASE WHEN ( returns_count IS NULL                                                                        ) THEN 0.0 ELSE  returns_count                 END, 0) AS frequency
+  
+FROM
+  (
+    SELECT
+      ss_customer_sk,
+      -- return order ratio
+      COUNT(distinct(ss_ticket_number)) AS orders_count,
+      -- return ss_item_sk ratio
+      COUNT(ss_item_sk) AS orders_items,
+      -- return monetary amount ratio
+      SUM( ss_net_paid ) AS orders_money
+    FROM store_sales s
+    GROUP BY ss_customer_sk
+  ) orders
+  LEFT OUTER JOIN
+  (
+    SELECT
+      sr_customer_sk,
+      -- return order ratio
+      count(distinct(sr_ticket_number)) as returns_count,
+      -- return ss_item_sk ratio
+      COUNT(sr_item_sk) as returns_items,
+      -- return monetary amount ratio
+      SUM( sr_return_amt ) AS returns_money
+    FROM store_returns
+    GROUP BY sr_customer_sk
+  ) returned ON ss_customer_sk=sr_customer_sk 
+ '</span>
+<span class="k">EXEC</span> <span class="n">sp_execute_external_script</span>
+	  <span class="o">@</span><span class="k">language</span> <span class="o">=</span> <span class="n">N</span><span class="s1">'R'</span>
+	<span class="p">,</span> <span class="o">@</span><span class="n">script</span> <span class="o">=</span> <span class="n">N</span><span class="s1">'
+# Define the connection string
+connStr &lt;- paste("Driver=SQL Server;Server=", instance_name, " ;Database=", database_name, " ;Trusted_Connection=true;", sep="" );
+
+# Input customer data that needs to be classified. This is the result we get from our query
+customer_returns &lt;- RxSqlServerData(sqlQuery = input_query,
+									colClasses = c(customer = "numeric", orderRatio = "numeric", itemsRatio = "numeric", monetaryRatio = "numeric", frequency = "numeric"),
+									connectionString = connStr);
+
+# Output table to hold the customer cluster mappings
+return_cluster = RxSqlServerData(table = "customer_return_clusters", connectionString = connStr);
+
+# set.seed for random number generator for predicatability
+set.seed(10);
+
+# generate clusters using rxKmeans and output clusters to a table called "customer_return_clusters".
+clust &lt;- rxKmeans( ~ orderRatio + itemsRatio + monetaryRatio + frequency, customer_returns, numClusters = 4
+                    , outFile = return_cluster, outColName = "cluster", writeModelVars = TRUE , extraVarsToWrite = c("customer"), overwrite = TRUE);
+'</span>
+	<span class="p">,</span> <span class="o">@</span><span class="n">input_data_1</span> <span class="o">=</span> <span class="n">N</span><span class="s1">''</span>
+	<span class="p">,</span> <span class="o">@</span><span class="n">params</span> <span class="o">=</span> <span class="n">N</span><span class="s1">'@instance_name nvarchar(100), @database_name nvarchar(128), @input_query nvarchar(max), @duration float OUTPUT'</span>
+	<span class="p">,</span> <span class="o">@</span><span class="n">instance_name</span> <span class="o">=</span> <span class="o">@</span><span class="n">instance_name</span>
+	<span class="p">,</span> <span class="o">@</span><span class="n">database_name</span> <span class="o">=</span> <span class="o">@</span><span class="n">database_name</span>
+	<span class="p">,</span> <span class="o">@</span><span class="n">input_query</span> <span class="o">=</span> <span class="o">@</span><span class="n">input_query</span>
+	<span class="p">,</span> <span class="o">@</span><span class="n">duration</span> <span class="o">=</span> <span class="o">@</span><span class="n">duration</span> <span class="k">OUTPUT</span><span class="p">;</span>
+<span class="k">END</span><span class="p">;</span>
+
+<span class="k">GO</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>You have now created a stored procedure that contains the R script for clustering.</p>
+</blockquote>
+
+<h2 id="step-32-perform-clustering-in-sql-server">Step 3.2 Perform clustering in SQL Server</h2>
+
+<p>We are now going to execute the stored procedure in SQL Server to perform the clustering</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="c1">--Empty table of the results before running the stored procedure</span>
+<span class="k">TRUNCATE</span> <span class="k">TABLE</span> <span class="n">customer_return_clusters</span><span class="p">;</span>
+<span class="c1">--Execute the clustering. This will load the table customer_return_clusters with cluster mappings</span>
+<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">generate_customer_return_clusters</span><span class="p">];</span>
+                               
+</code></pre>
+</div>
+
+<p>Now let’s verify that it works and that we actually have the list of customers and their cluster mappings</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="c1">--Now select data from table customer_return_clusters to verify that the clustering data was loaded</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">customer_return_clusters</span><span class="p">;</span>
+
+</code></pre>
+</div>
+
+<blockquote>
+  <p>Congrats, you have performed clustering with R inside SQL Server!</p>
+</blockquote>
+
+<h2 id="step-33-why-is-it-useful-to-deploy-this-in-sql-server">Step 3.3 Why is it useful to deploy this in SQL Server?</h2>
+
+<p>We now have the clustering implemented in SQL Server. Why is that useful?</p>
+
+<p>Well, imagine that you need to perform clustering on you cutomer data on a regular basis as new customers sign up to keep an updated understanding of customer behavior. In this example, we might want to send out promotion emails and can select the email addresses of customers in cluster 3 to send out a promotion.</p>
+
+<p>You can also schedule jobs that run the stored procedure and automatically send the results to for example a CRM application or a reporting tool.</p>
+
+<p>The code below is selecting the email addresses of customers in cluster 3, for a promotion campaign:</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">USE</span> <span class="p">[</span><span class="n">tpcxbb_1gb</span><span class="p">]</span>
+<span class="k">SELECT</span> <span class="n">customer</span><span class="p">.[</span><span class="n">c_email_address</span><span class="p">],</span> <span class="n">customer</span><span class="p">.</span><span class="n">c_customer_sk</span>
+  <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">customer</span>
+  <span class="k">JOIN</span> 
+  <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">customer_return_clusters</span><span class="p">]</span> <span class="k">as</span> <span class="n">r</span>
+  <span class="k">ON</span> <span class="n">r</span><span class="p">.</span><span class="n">customer</span> <span class="o">=</span> <span class="n">customer</span><span class="p">.</span><span class="n">c_customer_sk</span>
+  <span class="k">WHERE</span> <span class="n">r</span><span class="p">.</span><span class="k">cluster</span> <span class="o">=</span> <span class="mi">3</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>Congrats, you have now performed clustering in SQL Server with R using SQL Server Machine Learning Services!</p>
+</blockquote>
+
+  </div>
+
+   
+    
+    
+
+          
+
+            <a class="sql-page_steps-next" href="https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/machine-learning-services-tutorials">More SQL Server ML Tutorials</a>
+
+           
+      <div class="sql-resources">
+    <header class="sql-resources-header">
+        <h3 class="sql-resources-title">
+            To get general documentations
+        </h3>
+        <a class="sql-resources-button"
+            target="_blank"
+            href="https://docs.microsoft.com/en-us/sql/advanced-analytics/r/r-services">
+            Read the SQL Server ML Services documentation
+        </a>
+    </header>
+
+    <div class="sql-resources-list">
+        <h3 class="sql-resources-title">
+            Check out other related resources
+        </h3>
+        
+            <ul class="sql-resources-items">
+                
+                    
+                    
+                        <li class="sql-resources-item">
+                            Check out what's new with <a class="sql-resources-link" href="https://channel9.msdn.com/Events/Connect/2016/151" target="_blank">SQL Server + R on Channel 9</a>
+                        </li>
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                        <li class="sql-resources-item">
+                            Browse more SQL Server code samples on our <a class="sql-resources-link" href="https://github.com/Microsoft/sql-server-samples/tree/master/samples/features" target="_blank">GitHub repository</a>
+                        </li>
+                    
+                
+                    
+                    
+                        <li class="sql-resources-item">
+                            Learn more about <a class="sql-resources-link" href="https://www.microsoft.com/en-us/sql-server/sql-server-2017" target="_blank">SQL Server 2017</a>
+                        </li>
+                    
+                
+                    
+                    
+                
+                    
+                    
+                        <li class="sql-resources-item">
+                            Get the sample code for this tutorial <a class="sql-resources-link" href="https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/r-services/getting-started" target="_blank">here</a>
+                        </li>
+                    
+                
+            </ul>
+      
+    </div>
+</div>
+
+    
+  
+
+  <div class="sql-questions">
+    <h2 class="sql-questions-title">
+        Have Questions?
+    </h2>
+    <p class="sql-questions-text">
+        Happy to help! You can find us on <a href="https://github.com/Microsoft/sql-server-samples/tree/master/samples/tutorials" target="_blank">GitHub</a>, <a href="https://social.msdn.microsoft.com/Forums/en-US/home target="_blank"">MSDN Forums</a>, and StackOverflow. We also monitor the <a href="https://twitter.com/search?q=%23SQLServerDev&amp;src=typd" target="_blank">#SQLServerDev</a> hashtag on Twitter.
+    </p>
+</div>
+
+  
+      <footer class="sql-disqus">
+        
+
+      </footer>
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="sql-footer">
+  
+
+
+
+
+    <div class="sql-footer-copy">
+        <a class="sql-footer-link" href="https://go.microsoft.com/?linkid=2028325">Contact us</a> | 
+        <a class="sql-footer-link" href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy & cookies</a> | 
+        <a class="sql-footer-link" href="https://go.microsoft.com/fwlink/?LinkID=206977">Terms of use</a> | 
+        <a class="sql-footer-link" href="https://www.microsoft.com/trademarks">Trademarks</a> | 
+        <a class="sql-footer-link" href="https://choice.microsoft.com/">About our ads</a> | 
+        © 2017 Microsoft 
+      <!--
+        <a href="#" target="_blank" class="sql-footer-icon fa fa-twitter" aria-hidden="true" style="float:right;"></a>
+        <a href="#" target="_blank" class="sql-footer-icon fa fa-github" aria-hidden="true" style="float:right;"></a>
+      -->
+    </div>
+
+           
+</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js" type="text/javascript"></script>
+<script src="https://use.fontawesome.com/c7b2a63f93.js"></script>
+<script src="/en-us/sql-server/developer-get-started/ml-tutorials/assets/scripts/prism.js" type="text/javascript"></script>
+<script src="/en-us/sql-server/developer-get-started/ml-tutorials/assets/scripts/steps.js" type="text/javascript"></script>
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'Microsoft/mssql-developers'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+  </body>
+
+</html>

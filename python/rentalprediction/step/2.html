@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2000px-Microsoft_logo.svg.png">
+
+  <title>
+    
+      Python Build a predictive model
+    
+  </title>
+  <meta name="description" content="Get Started with SQL Server Machine Learning Services">
+  <link rel="stylesheet" href="/en-us/sql-server/developer-get-started/ml-tutorials/assets/main.css">
+  <link rel="canonical" href="https://sqlchoice.azurewebsites.net/en-us/sql-server/developer-get-started/ml-tutorials/python/rentalprediction/step/2">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-62780441-15', 'auto');
+  ga('send', 'pageview');
+  $(document).ready(function() {
+      $("code").bind({
+          copy: function(event) {
+              ga("send", "event", {
+                  eventCategory: window.location.pathname,
+                  eventAction: "copy_code"
+              });
+         console.log("Copy");
+
+          }, 
+
+          cut: function(event) {
+              ga("send", "event", {
+                  eventCategory: window.location.pathname,
+                  eventAction: "copy_code"
+              });
+          }
+      })
+
+      $("a").click(function(event) {
+          ga("send", "event", {
+              eventCategory: window.location.pathname,
+              eventAction: "click_link",
+              eventLabel: event.target.href
+          });
+      })
+  });  
+  </script>
+
+
+
+</head>
+
+
+  <body>
+
+    <header class="sql-header sql-header--empty" role="banner">
+    <div class="sql-header-content">
+      <img class="sql-header-micro" src="/en-us/sql-server/developer-get-started/ml-tutorials/assets/images/micro-logo.png" alt="Microsoft logo">
+      
+        <div class="sql-menutop">
+          <a class="sql-menutop-link" href="/en-us/sql-server/developer-get-started/ml-tutorials/">Get started with Machine Learning in SQL Server</a>
+          <div>
+            
+              
+              
+
+              <div class="sql-menutop-sub ">
+                  
+                    
+                      
+                      
+
+                        
+                          <span class="sql-menutop-link">R </span>
+                        
+
+                        
+                    
+                      
+                      
+
+                        
+
+                        
+                          <div class="sql-menutop-items">
+                            
+                              
+                              
+                              
+
+                              <a class="sql-menutop-item " 
+                                href="/en-us/sql-server/developer-get-started/ml-tutorials/R/rentalprediction" 
+                                target="_self">
+                                Predict ski rentals
+                                
+                              </a>
+                            
+                              
+                              
+                              
+
+                              <a class="sql-menutop-item " 
+                                href="/en-us/sql-server/developer-get-started/ml-tutorials/R/customerclustering" 
+                                target="_self">
+                                Perform customer clustering
+                                
+                              </a>
+                            
+                          </div>
+                        
+                    
+                  
+              </div>
+            
+              
+              
+
+              <div class="sql-menutop-sub  is-active ">
+                  
+                    
+                      
+                      
+
+                        
+                          <span class="sql-menutop-link">Python </span>
+                        
+
+                        
+                    
+                      
+                      
+
+                        
+
+                        
+                          <div class="sql-menutop-items">
+                            
+                              
+                              
+                              
+
+                              <a class="sql-menutop-item " 
+                                href="/en-us/sql-server/developer-get-started/ml-tutorials/python/rentalprediction" 
+                                target="_self">
+                                Predict ski rentals
+                                
+                              </a>
+                            
+                              
+                              
+                              
+
+                              <a class="sql-menutop-item " 
+                                href="/en-us/sql-server/developer-get-started/ml-tutorials/python/customerclustering" 
+                                target="_self">
+                                Perform customer clustering
+                                
+                                  <i class="sql-new"></i>
+                                
+                              </a>
+                            
+                          </div>
+                        
+                    
+                  
+              </div>
+            
+          </div>
+        </div>
+
+      
+</header>
+
+
+    <main class="sql-main" aria-label="Content">
+      <div class="u-wrapper">
+        <article class="sql-page_steps">
+
+  
+    
+    
+    
+
+    <h1 class="sql-page_steps-hero">
+      Build a predictive model using Python and SQL Server ML Services
+    </h1>
+
+    <header class="sql-page_steps-steps js-stepsheader">
+      
+        
+        
+
+        <div class="sql-page_steps-step">
+          
+            <a class="sql-page_steps-link "
+               href="/en-us/sql-server/developer-get-started/ml-tutorials/python/rentalprediction"
+               target="_self">
+               <span class="sql-page_steps-number">1</span>
+               Set up your environment
+              </a>
+          
+        </div>
+      
+        
+        
+
+        <div class="sql-page_steps-step">
+          
+            <a class="sql-page_steps-link  sql-page_steps-link--active "
+               href="/en-us/sql-server/developer-get-started/ml-tutorials/python/rentalprediction/step/2.html"
+               target="_self">
+               <span class="sql-page_steps-number">2</span>
+               Create your ML script using Python
+            </a>
+          
+        </div>
+      
+        
+        
+
+        <div class="sql-page_steps-step">
+          
+            <a class="sql-page_steps-link "
+               href="/en-us/sql-server/developer-get-started/ml-tutorials/python/rentalprediction/step/3.html"
+               target="_self">
+               <span class="sql-page_steps-number">3</span>
+               Deploy your ML script with SQL Server
+            </a>
+          
+        </div>
+      
+    </header>
+  
+
+  <div class="sql-page_steps-loading js-loading">
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <div></div>
+    <div></div>
+    <p></p>
+    <div></div>
+    <div></div>
+    <p></p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <p></p>
+    <p></p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <p></p>
+    <div></div>
+    <div></div>
+    <p></p>
+    <p></p>
+    <div></div>
+    <div></div>
+    
+  </div>
+
+  <div class="js-steps is-hidden">
+    <blockquote>
+  <p>After getting SQL Server with ML Services installed and your Python IDE configured on your machine, you can now proceed to <strong>train</strong> a predictive model with Python.</p>
+</blockquote>
+
+<blockquote>
+  <p>In this specific scenario, we own a ski rental business, and we want to predict the number of rentals that
+we will have on a future date. This information will help us to get ready from a stock, staff and facilities perspective.</p>
+</blockquote>
+
+<blockquote>
+  <p>During <strong>model training</strong>, you create and train a predictive model by showing it sample data along with the outcomes. Then you save this model so that you can use it later when you want to make predictions against new data.</p>
+</blockquote>
+
+<h2 id="step-21-load-the-sample-data">Step 2.1 Load the sample data</h2>
+
+<p><strong>Restore the sample DB</strong>
+The dataset used in this tutorial is hosted in a SQL Server table.The table contains rental data from previous years.&lt;/p&gt;</p>
+<ol>
+  <li>Download the backup (.bak) file <a href="https://sqlchoice.blob.core.windows.net/sqlchoice/TutorialDB.bak">here</a>, and save it on a location that SQL Server can access.
+For example in the folder where SQL Server is installed.
+Sample path: C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Backup</li>
+</ol>
+
+<p>2.Once you have the file saved, open SSMS and a new query window to run the following commands to restore the DB.
+Make sure to modify the file paths and server name in the script.</p>
+
+<pre><code class="language-SQL">USE master;  
+GO  
+RESTORE DATABASE TutorialDB  
+   FROM DISK = 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Backup\TutorialDB.bak'
+   WITH 
+   MOVE 'TutorialDB' TO 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\TutorialDB.mdf'
+   ,MOVE 'TutorialDB_log' TO 'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\TutorialDB.ldf';  
+GO 
+</code></pre>
+
+<p>A table named rental_data containing the dataset should exist in the restored SQL Server database.
+You can verify this by querying the table in SSMS.</p>
+
+<pre><code class="language-SQL">USE tutorialdb;
+SELECT * FROM [dbo].[rental_data];
+</code></pre>
+
+<blockquote>
+  <p>You now have the database and the data to use for training the model.</p>
+</blockquote>
+
+<h2 id="step-22-explore-the-data-with-python">Step 2.2 Explore the data with Python</h2>
+
+<p>Loading data from SQL Server to Python is easy. So let’s try it out.</p>
+
+<p>Open a new Python script in your IDE and run the following script.
+Just don’t forget to replace “MYSQLSERVER” with the name of your database instance.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+
+<span class="c">#If you are running SQL Server 2017 RC1 and above:</span>
+<span class="kn">from</span> <span class="nn">revoscalepy</span> <span class="kn">import</span> <span class="n">RxComputeContext</span><span class="p">,</span> <span class="n">RxInSqlServer</span><span class="p">,</span> <span class="n">RxSqlServerData</span>
+<span class="kn">from</span> <span class="nn">revoscalepy</span> <span class="kn">import</span> <span class="n">rx_import</span>
+
+<span class="c">#Connection string to connect to SQL Server named instance</span>
+<span class="n">conn_str</span> <span class="o">=</span> <span class="s">'Driver=SQL Server;Server=MYSQLSERVER;Database=TutorialDB;Trusted_Connection=True;'</span>
+
+<span class="c">#Define the columns we wish to import</span>
+ <span class="n">column_info</span> <span class="o">=</span> <span class="p">{</span> 
+         <span class="s">"Year"</span> <span class="p">:</span> <span class="p">{</span> <span class="s">"type"</span> <span class="p">:</span> <span class="s">"integer"</span> <span class="p">},</span>
+         <span class="s">"Month"</span> <span class="p">:</span> <span class="p">{</span> <span class="s">"type"</span> <span class="p">:</span> <span class="s">"integer"</span> <span class="p">},</span> 
+         <span class="s">"Day"</span> <span class="p">:</span> <span class="p">{</span> <span class="s">"type"</span> <span class="p">:</span> <span class="s">"integer"</span> <span class="p">},</span> 
+         <span class="s">"RentalCount"</span> <span class="p">:</span> <span class="p">{</span> <span class="s">"type"</span> <span class="p">:</span> <span class="s">"integer"</span> <span class="p">},</span> 
+         <span class="s">"WeekDay"</span> <span class="p">:</span> <span class="p">{</span> 
+             <span class="s">"type"</span> <span class="p">:</span> <span class="s">"factor"</span><span class="p">,</span> 
+             <span class="s">"levels"</span> <span class="p">:</span> <span class="p">[</span><span class="s">"1"</span><span class="p">,</span> <span class="s">"2"</span><span class="p">,</span> <span class="s">"3"</span><span class="p">,</span> <span class="s">"4"</span><span class="p">,</span> <span class="s">"5"</span><span class="p">,</span> <span class="s">"6"</span><span class="p">,</span> <span class="s">"7"</span><span class="p">]</span>
+         <span class="p">},</span>
+         <span class="s">"Holiday"</span> <span class="p">:</span> <span class="p">{</span> 
+             <span class="s">"type"</span> <span class="p">:</span> <span class="s">"factor"</span><span class="p">,</span> 
+             <span class="s">"levels"</span> <span class="p">:</span> <span class="p">[</span><span class="s">"1"</span><span class="p">,</span> <span class="s">"0"</span><span class="p">]</span>
+         <span class="p">},</span>
+         <span class="s">"Snow"</span> <span class="p">:</span> <span class="p">{</span> 
+             <span class="s">"type"</span> <span class="p">:</span> <span class="s">"factor"</span><span class="p">,</span> 
+             <span class="s">"levels"</span> <span class="p">:</span> <span class="p">[</span><span class="s">"1"</span><span class="p">,</span> <span class="s">"0"</span><span class="p">]</span>
+         <span class="p">}</span>
+     <span class="p">}</span>
+
+<span class="c">#Get the data from SQL Server Table</span>
+<span class="n">data_source</span> <span class="o">=</span> <span class="n">RxSqlServerData</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="s">"dbo.rental_data"</span><span class="p">,</span>
+                               <span class="n">connection_string</span><span class="o">=</span><span class="n">conn_str</span><span class="p">,</span> <span class="n">column_info</span><span class="o">=</span><span class="n">column_info</span><span class="p">)</span>
+<span class="n">computeContext</span> <span class="o">=</span> <span class="n">RxInSqlServer</span><span class="p">(</span>
+     <span class="n">connection_string</span> <span class="o">=</span> <span class="n">conn_str</span><span class="p">,</span>
+     <span class="n">num_tasks</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+     <span class="n">auto_cleanup</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="p">)</span>
+     
+    
+<span class="n">RxInSqlServer</span><span class="p">(</span><span class="n">connection_string</span><span class="o">=</span><span class="n">conn_str</span><span class="p">,</span> <span class="n">num_tasks</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">auto_cleanup</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+ <span class="c"># import data source and convert to pandas dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rx_import</span><span class="p">(</span><span class="n">input_data</span> <span class="o">=</span> <span class="n">data_source</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Data frame:"</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+<span class="c"># Get all the columns from the dataframe.</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="c"># Filter the columns to remove ones we don't want to use in the training</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"Year"</span><span class="p">]]</span>
+</code></pre>
+</div>
+
+<pre><code class="language-results">Rows Processed: 453
+Data frame:      Day  Holiday  Month  RentalCount  Snow  WeekDay  Year
+0     20        1      1          445     2        2  2014
+1     13        2      2           40     2        5  2014
+2     10        2      3          456     2        1  2013
+3     31        2      3           38     2        2  2014
+4     24        2      4           23     2        5  2014
+5     11        2      2           42     2        4  2015
+6     28        2      4          310     2        1  2013
+...
+[453 rows x 7 columns]
+</code></pre>
+
+<blockquote>
+  <p>You have now read the data from SQL Server to Python and explored it.</p>
+</blockquote>
+
+<h2 id="step-23-train-a-model">Step 2.3 Train a model</h2>
+<p>In order to predict, we first have to find a function (model) that best describes the dependency between the variables in our dataset. This step is called <strong>training the model</strong>. The training dataset will be a subset of the entire dataset.</p>
+
+<p>We are going to create a model using a linear regression algorithm.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code> <span class="c"># Store the variable we'll be predicting on.</span>
+<span class="n">target</span> <span class="o">=</span> <span class="s">"RentalCount"</span>
+<span class="c"># Generate the training set.  Set random_state to be able to replicate results.</span>
+<span class="n">train</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c"># Select anything not in the training set and put it in the testing set.</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span>
+<span class="c"># Print the shapes of both sets.</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Training set shape:"</span><span class="p">,</span> <span class="n">train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Testing set shape:"</span><span class="p">,</span> <span class="n">test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="c"># Initialize the model class.</span>
+<span class="n">lin_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="c"># Fit the model to the training data.</span>
+<span class="n">lin_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">columns</span><span class="p">],</span> <span class="n">train</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
+</code></pre>
+</div>
+
+<pre><code class="language-results">Training set shape: (362, 7)
+Testing set shape: (91, 7)
+</code></pre>
+
+<blockquote>
+  <p>Now we have trained a linear regression model in Python! Let’s use it to predict the rental count.</p>
+</blockquote>
+
+<h2 id="step-24-prediction">Step 2.4 Prediction</h2>
+<p>We are now going to use a predict function to predict the Rental Counts using our two models.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Generate our predictions for the test set.</span>
+<span class="n">lin_predictions</span> <span class="o">=</span> <span class="n">lin_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">columns</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Predictions:"</span><span class="p">,</span> <span class="n">lin_predictions</span><span class="p">)</span>
+<span class="c"># Compute error between our test predictions and the actual values.</span>
+<span class="n">lin_mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">lin_predictions</span><span class="p">,</span> <span class="n">test</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Computed error:"</span><span class="p">,</span> <span class="n">lin_mse</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<pre><code class="language-results">Predictions: [  40.   38.  240.   39.  514.   48.  297.   25.  507.   24.   30.   54.
+   40.   26.   30.   34.   42.  390.  336.   37.   22.   35.   55.  350.
+  252.  370.  499.   48.   37.  494.   46.   25.  312.  390.   35.   35.
+  421.   39.  176.   21.   33.  452.   34.   28.   37.  260.   49.  577.
+  312.   24.   24.  390.   34.   64.   26.   32.   33.  358.  348.   25.
+   35.   48.   39.   44.   58.   24.  350.  651.   38.  468.   26.   42.
+  310.  709.  155.   26.  648.  617.   26.  846.  729.   44.  432.   25.
+   39.   28.  325.   46.   36.   50.   63.]
+Computed error: 3.59831533436e-26
+</code></pre>
+
+<blockquote>
+  <p>Congrats you just created a model with Python! Let us now deploy our Python code by moving it to SQL Server.</p>
+</blockquote>
+
+  </div>
+
+   
+    
+    
+      
+
+      
+
+      <a class="sql-page_steps-next"
+        href="/en-us/sql-server/developer-get-started/ml-tutorials/python/rentalprediction/step/3.html"
+        target="_self">
+        Go to step 3
+      </a>
+
+    
+  
+
+  <div class="sql-questions">
+    <h2 class="sql-questions-title">
+        Have Questions?
+    </h2>
+    <p class="sql-questions-text">
+        Happy to help! You can find us on <a href="https://github.com/Microsoft/sql-server-samples/tree/master/samples/tutorials" target="_blank">GitHub</a>, <a href="https://social.msdn.microsoft.com/Forums/en-US/home target="_blank"">MSDN Forums</a>, and StackOverflow. We also monitor the <a href="https://twitter.com/search?q=%23SQLServerDev&amp;src=typd" target="_blank">#SQLServerDev</a> hashtag on Twitter.
+    </p>
+</div>
+
+  
+      <footer class="sql-disqus">
+        
+
+      </footer>
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="sql-footer">
+  
+
+
+
+
+    <div class="sql-footer-copy">
+        <a class="sql-footer-link" href="https://go.microsoft.com/?linkid=2028325">Contact us</a> | 
+        <a class="sql-footer-link" href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy & cookies</a> | 
+        <a class="sql-footer-link" href="https://go.microsoft.com/fwlink/?LinkID=206977">Terms of use</a> | 
+        <a class="sql-footer-link" href="https://www.microsoft.com/trademarks">Trademarks</a> | 
+        <a class="sql-footer-link" href="https://choice.microsoft.com/">About our ads</a> | 
+        © 2017 Microsoft 
+      <!--
+        <a href="#" target="_blank" class="sql-footer-icon fa fa-twitter" aria-hidden="true" style="float:right;"></a>
+        <a href="#" target="_blank" class="sql-footer-icon fa fa-github" aria-hidden="true" style="float:right;"></a>
+      -->
+    </div>
+
+           
+</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js" type="text/javascript"></script>
+<script src="https://use.fontawesome.com/c7b2a63f93.js"></script>
+<script src="/en-us/sql-server/developer-get-started/ml-tutorials/assets/scripts/prism.js" type="text/javascript"></script>
+<script src="/en-us/sql-server/developer-get-started/ml-tutorials/assets/scripts/steps.js" type="text/javascript"></script>
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'Microsoft/mssql-developers'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+  </body>
+
+</html>
