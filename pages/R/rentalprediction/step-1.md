@@ -2,7 +2,7 @@
 layout: page-steps
 language: R
 title: Build a predictive model
-permalink: /R/rentalprediction
+permalink: /R/rentalprediction/
 redirect_from:
   - /R/
   - /R/rentalprediction/step/
