@@ -132,7 +132,7 @@ GO
 ```
 
 ## Step 3.3 Predict using native scoring (New!)
-In SQL Server 2017, we are introducing a native predict function in TSQL. The native PREDICT function allows you to perform faster scoring using certain RevoScaleR or revoscalepy models using a SQL query without invoking the R or Python runtime. The following code sample whows how you can train a model in R using RevoscaleR "Rx" functions, save the model to a table in the DB and predict using [native scoring](https://docs.microsoft.com/en-us/sql/advanced-analytics/sql-native-scoring).
+In SQL Server 2017, we are introducing a native predict function in TSQL. The native PREDICT function allows you to perform faster scoring using certain RevoScaleR or revoscalepy models using a SQL query without invoking the R or Python runtime. The following code sample shows how you can train a model in R using RevoscaleR "Rx" functions, save the model to a table in the DB and predict using [native scoring](https://docs.microsoft.com/en-us/sql/advanced-analytics/sql-native-scoring).
 
 ```sql
 USE TutorialDB;
