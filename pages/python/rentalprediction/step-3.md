@@ -241,7 +241,7 @@ INSERT INTO rental_models (model_name, native_model, lang) VALUES('dtree_model',
 -- Look at the models in the table
 SELECT * FROM rental_models;
 
---STEP 4  - Use the native PREDICT to predict number of rentals for both models
+--STEP 4  - Use the native PREDICT (native scoring) to predict number of rentals for both models
 DECLARE @model VARBINARY(MAX) = (SELECT TOP(1) native_model FROM dbo.rental_models WHERE model_name = 'linear_model' AND lang = 'Python');
 SELECT d.*, p.* FROM PREDICT(MODEL = @model, DATA = dbo.rental_data AS d) WITH(RentalCount_Pred float) AS p;
 GO
