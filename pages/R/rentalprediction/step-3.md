@@ -205,6 +205,7 @@ INSERT INTO rental_models (model_name, native_model, lang) VALUES('dtree_model',
 -- Look at the models in the table
 SELECT * FROM rental_models;
 
+GO
 -- STEP 4  - Use the native PREDICT (native scoring) to predict number of rentals for both models
 --Now lets predict using native scoring with linear model
 DECLARE @model VARBINARY(MAX) = (SELECT TOP(1) native_model FROM dbo.rental_models WHERE model_name = 'linear_model' AND lang = 'R');
