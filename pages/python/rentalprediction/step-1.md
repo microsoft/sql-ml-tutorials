@@ -43,10 +43,18 @@ You can read more about configuring Machine Learning Services [here](https://doc
 
 *Python Tools for Visual Studio (PTVS) [Download](https://microsoft.github.io/PTVS)
 
+*[VS Code](https://code.visualstudio.com/download) with the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and the [mssql extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)
+
 *PyCharm [Download](https://www.jetbrains.com/pycharm/)
 
-2.To be able to use some of the functions in this tutorial, you need to point your Python environment to use the Python that comes with SQL Server 2017.
+2.**Note: To be able to use some of the functions in this tutorial, you need to point your Python environment to use the Python that comes with SQL Server 2017.**
 Point your Python environment to this path: *C:\Program Files\Microsoft SQL Server\YOURSQLSERVER\PYTHON_SERVICES*
+
+For instructions on how to point to the python interpreter that comes with SQL Server Machine Learning Services, here are some useful links:
+
+*PTVS: [Here](https://docs.microsoft.com/en-us/visualstudio/python/managing-python-environments-in-visual-studio#manually-identifying-an-existing-environment) are instructions on how to manually point to a python interpreter using PTVS.
+
+*VS Code: [Here](https://code.visualstudio.com/docs/python/environments#_manually-specifying-an-interpreter) are instructions on how to manually point to a python interpreter using VS Code.
 
 >Terrific, now your SQL Server instance is able to host and run Python code and you have the necessary development tools installed and configured! 
 The next section will walk you through creating a predictive model using Python.
