@@ -43,13 +43,14 @@ To import a report in SSMS, right click on Server Objects in the SSMS Object Exp
 >Now you have enabled external script execution so that you can run Python code inside SQL Server!
 
 ## Install and configure your Python development environment   
-1. You need to install a Python IDE. Here are some suggestions:
+1.You need to install a Python IDE. Here are some suggestions:
 
-*Python Tools for Visual Studio (PTVS) [Install](https://docs.microsoft.com/en-us/visualstudio/python/installation)
+*Python Tools for Visual Studio (PTVS) [Download](https://microsoft.github.io/PTVS)
 
-*PyCharm [Install](https://www.jetbrains.com/pycharm/)
+*VS Code [(download)](https://code.visualstudio.com/download) with the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and the [mssql extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)
 
-*Spyder [Install](https://pythonhosted.org/spyder/installation.html)
+*PyCharm [Download](https://www.jetbrains.com/pycharm/)
+
 
 2.**Note: To be able to use some of the functions in this tutorial, you need to point your Python environment to use the Python that comes with SQL Server 2017.**
 Point your Python environment to this path: *C:\Program Files\Microsoft SQL Server\YOURSQLSERVER\PYTHON_SERVICES*
