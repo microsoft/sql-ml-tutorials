@@ -43,7 +43,7 @@ You can read more about configuring Machine Learning Services [here](https://doc
 
 *Python Tools for Visual Studio (PTVS) [Download](https://microsoft.github.io/PTVS)
 
-*[VS Code](https://code.visualstudio.com/download) with the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and the [mssql extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)
+*VS Code [(download)](https://code.visualstudio.com/download) with the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and the [mssql extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)
 
 *PyCharm [Download](https://www.jetbrains.com/pycharm/)
 
