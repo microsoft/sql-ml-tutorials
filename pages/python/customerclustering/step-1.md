@@ -51,7 +51,14 @@ To import a report in SSMS, right click on Server Objects in the SSMS Object Exp
 
 *Spyder [Install](https://pythonhosted.org/spyder/installation.html)
 
-2. To be able to use some of the functions in this tutorial, you need to configure your Python IDE to point to the Python environment that comes with SQL Server.
+2.**Note: To be able to use some of the functions in this tutorial, you need to point your Python environment to use the Python that comes with SQL Server 2017.**
+Point your Python environment to this path: *C:\Program Files\Microsoft SQL Server\YOURSQLSERVER\PYTHON_SERVICES*
+
+For instructions on how to point to the python interpreter that comes with SQL Server Machine Learning Services, here are some useful links:
+
+*PTVS: [Here](https://docs.microsoft.com/en-us/visualstudio/python/managing-python-environments-in-visual-studio#manually-identifying-an-existing-environment) are instructions on how to manually point to a python interpreter using PTVS.
+
+*VS Code: [Here](https://code.visualstudio.com/docs/python/environments#_manually-specifying-an-interpreter) are instructions on how to manually point to a python interpreter using VS Code.
 This is an example path to illustrate where the Python files are saved: C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\PYTHON_SERVICES
 
 > Terrific, now your SQL Server instance is able to host and run R code and you have the necessary development tools installed and configured! The next section will walk you through how to do clustering using R.
