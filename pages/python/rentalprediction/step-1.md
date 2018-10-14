@@ -47,17 +47,14 @@ You can read more about configuring Machine Learning Services [here](https://doc
 
 *PyCharm [Download](https://www.jetbrains.com/pycharm/)
 
-2.**Note: To be able to use some of the functions in this tutorial, you need to point your Python environment to use the Python that comes with SQL Server 2017.**
-Point your Python environment to this path: *C:\Program Files\Microsoft SQL Server\YOURSQLSERVER\PYTHON_SERVICES*
-This is an example path to illustrate where the Python interpreter files are saved: C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\PYTHON_SERVICES
 
-For instructions on how to point to the python interpreter that comes with SQL Server Machine Learning Services, here are some useful links:
+## Step 1.5 Install remote Python client libraries
 
-*PTVS: [Here](https://docs.microsoft.com/en-us/visualstudio/python/managing-python-environments-in-visual-studio#manually-identifying-an-existing-environment) are instructions on how to manually point to a python interpreter using PTVS
+**Note!!! To be able to use some of the functions in this tutorial, you need to have the revoscalepy package.**
 
-*VS Code: [Here](https://code.visualstudio.com/docs/python/environments#_manually-specifying-an-interpreter) are instructions on how to manually point to a python interpreter using VS Code.
+Follow instructions here to learn how you can install Python client libaries for remote execution against SQL Server ML Services:
 
-*PyCharm: [Here](https://www.jetbrains.com/help/pycharm/configuring-python-interpreter.html) are instructions on how to configure a python interpreter using Pycharm
+[How to install Pyton client libraries](]https://docs.microsoft.com/en-us/machine-learning-server/install/python-libraries-interpreter)
 
 >Terrific, now your SQL Server instance is able to host and run Python code and you have the necessary development tools installed and configured! 
 The next section will walk you through creating a predictive model using Python.
