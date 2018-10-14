@@ -58,7 +58,7 @@ To import a report in SSMS, right click on Server Objects in the SSMS Object Exp
 
 Follow instructions here to learn how you can install Python client libaries for remote execution against SQL Server ML Services:
 
-[How to install Pyton client libraries](]https://docs.microsoft.com/en-us/machine-learning-server/install/python-libraries-interpreter)
+[How to install Python client libraries](]https://docs.microsoft.com/en-us/machine-learning-server/install/python-libraries-interpreter)
 
 
 > Terrific, now your SQL Server instance is able to host and run R code and you have the necessary development tools installed and configured! The next section will walk you through how to do clustering using R.
