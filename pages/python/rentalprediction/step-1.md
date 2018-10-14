@@ -54,7 +54,7 @@ You can read more about configuring Machine Learning Services [here](https://doc
 
 Follow instructions here to learn how you can install Python client libaries for remote execution against SQL Server ML Services:
 
-[How to install Pyton client libraries](]https://docs.microsoft.com/en-us/machine-learning-server/install/python-libraries-interpreter)
+[How to install Python client libraries](]https://docs.microsoft.com/en-us/machine-learning-server/install/python-libraries-interpreter)
 
 >Terrific, now your SQL Server instance is able to host and run Python code and you have the necessary development tools installed and configured! 
 The next section will walk you through creating a predictive model using Python.
