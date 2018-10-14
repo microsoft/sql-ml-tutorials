@@ -42,7 +42,7 @@ To import a report in SSMS, right click on Server Objects in the SSMS Object Exp
 
 >Now you have enabled external script execution so that you can run Python code inside SQL Server!
 
-## Install and configure your Python development environment   
+## Step 1.4 Install and configure your Python development environment   
 1.You need to install a Python IDE. Here are some suggestions:
 
 *Python Tools for Visual Studio (PTVS) [Download](https://microsoft.github.io/PTVS)
@@ -52,7 +52,9 @@ To import a report in SSMS, right click on Server Objects in the SSMS Object Exp
 *PyCharm [Download](https://www.jetbrains.com/pycharm/)
 
 
-2. **Note!!! To be able to use some of the functions in this tutorial, you need to have the revoscalepy package.**
+## Step 1.5 Install remote Python client libraries
+
+**Note!!! To be able to use some of the functions in this tutorial, you need to have the revoscalepy package.**
 
 Follow instructions here to learn how you can install Python client libaries for remote execution against SQL Server ML Services:
 
