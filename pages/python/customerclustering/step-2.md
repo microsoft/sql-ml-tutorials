@@ -207,11 +207,9 @@ Based on the graph, it looks like *k = 4* would be a good value to try. That wil
 It is now time to use Kmeans. In this sample, we will be using the KMeans function from the sklearn package.
 
 ```Python
-	################################################################################################
-
-    ##	Perform clustering using Kmeans
-
-    ################################################################################################
+################################################################################################
+##	Perform clustering using Kmeans
+################################################################################################
 
     # It looks like k=4 is a good number to use based on the elbow graph.
     n_clusters = 4
