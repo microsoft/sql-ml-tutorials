@@ -125,8 +125,7 @@ def perform_clustering():
         "frequency": {"type": "integer"}
     }
 
-    ```
-
+```
 Results from the query are returned to Python using the revoscalepy RxSqlServerData function. 
 This is also where we provide column info, to make sure that the types are correctly transferred.
 
@@ -135,7 +134,7 @@ data_source = revoscale.RxSqlServerData(sql_query=input_query, column_Info=colum
                                               connection_string=conn_str)
     revoscale.RxInSqlServer(connection_string=conn_str, num_tasks=1, auto_cleanup=False)
     # import data source and convert to pandas dataframe.
-    customer_data = pd.DataFrame(revoscalepy.rx_import(data_source))
+    customer_data = pd.DataFrame(revoscale.rx_import(data_source))
     print("Data frame:", customer_data.head(n=5))
 ```
 
