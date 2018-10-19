@@ -45,18 +45,18 @@ To import a report in SSMS, right click on Server Objects in the SSMS Object Exp
 ## Step 1.4 Install and configure your Python development environment   
 1.You need to install a Python IDE. Here are some suggestions:
 
-*Python Tools for Visual Studio (PTVS) [Download](https://microsoft.github.io/PTVS)
+* Python Tools for Visual Studio (PTVS) [Download](https://microsoft.github.io/PTVS)
 
-*VS Code [(download)](https://code.visualstudio.com/download) with the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and the [mssql extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)
+* VS Code [(download)](https://code.visualstudio.com/download) with the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and the [mssql extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)
 
-*PyCharm [Download](https://www.jetbrains.com/pycharm/)
+* PyCharm [Download](https://www.jetbrains.com/pycharm/)
 
 
 ## Step 1.5 Install remote Python client libraries
 
 **Note!!! To be able to use some of the functions in this tutorial, you need to have the revoscalepy package.**
 
-Follow instructions here to learn how you can install Python client libaries for remote execution against SQL Server ML Services:
+Follow instructions here to learn how you can install Python client libraries for remote execution against SQL Server ML Services:
 
 [How to install Python client libraries](]https://docs.microsoft.com/en-us/machine-learning-server/install/python-libraries-interpreter)
 

@@ -23,7 +23,6 @@ The dataset used in this tutorial is hosted in several SQL Server tables.The tab
 For example in the folder where SQL Server is installed.
 Sample path: C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Backup
 
-
 2. Once you have the file saved, open SSMS and a new query window to run the following commands to restore the DB.
 Make sure to modify the file paths and server name in the script.
 
@@ -214,7 +213,7 @@ Let's try something else and see if we can get some more insight from that.
 
 ## Step 2.6 Analyze cluster means
 
-The clust object contains the results from our Kmeans clustering. We are going to look at some mean values.
+The `clust` object contains the results from our Kmeans clustering. We are going to look at some mean values.
 
 ```r
 #Look at the clustering details and analyze results
@@ -256,7 +255,7 @@ Just to refresh our memory, here are the definitions of our variables:
 Some examples of what the mean values tell us?
 
 * Well, cluster 1 (the largest cluster) seems to be a group of customers that are not active. All values are zero.
-*And cluster 3 seems to be a group that stands out in terms of return behaviour.
+* And cluster 3 seems to be a group that stands out in terms of return behaviour.
                                   
 Data mining using Kmeans often requires further analysis of the results, and further steps to better understand each cluster, 
 but it provides some very good leads. Cluster 1 is a set of customers who are clearly not active. Perhaps we can target marketing efforts towards this group to trigger an interest for purchases? 
