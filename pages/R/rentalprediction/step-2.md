@@ -19,7 +19,7 @@ we will have on a future date. This information will help us to get ready from a
 
 
 The dataset used in this tutorial is hosted in a SQL Server table.The table contains rental data from previous years.
-1.Download the backup (.bak) file [here](https://sqlchoice.blob.core.windows.net/sqlchoice/TutorialDB.bak), and save it on a location that SQL Server can access.
+1.Download the backup (.bak) file [here](https://sqlchoice.blob.core.windows.net/sqlchoice/static/TutorialDB.bak), and save it on a location that SQL Server can access.
 For example in the folder where SQL Server is installed.
 Sample path: C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Backup
 
