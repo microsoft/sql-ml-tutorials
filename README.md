@@ -16,10 +16,10 @@ The *\pages* folder contains the documentation articles formatted as markdown fi
 This folder contains reusable content sections to be included in one or more articles. This folder also contains base html files that are used accross the site.
 
 ### \_sass
-This folder contains the css files used the style the website
+This folder contains the css files used the style the website.
 
 ### \assets
-This folder contains images and js scripts used in the tutorials website
+This folder contains images and js scripts used in the tutorials website.
 
 
 ## Use GitHub, Git, and this repository
@@ -30,7 +30,7 @@ If you install GitBash and choose to work locally, the steps for creating a new 
 ### Branches
 We recommend that you create local working branches that target a specific scope of change. Each branch should be limited to a single concept/article both to streamline work flow and reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
 
-* A new article (and associated images)
+* A new article (and associated images).
 * Spelling and grammar edits on an article.
 * Applying a single formatting change across a large set of articles (e.g. new copyright footer).
 
